@@ -1,3 +1,62 @@
 <!-- TRANG QUẢN TRỊ: HOÀNG -->
 <!--  Link để gắn CSS: 
 <link rel="stylesheet" href="../../assets/css/output.css" /> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị - quản lý sản phẩm bánh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../assets/css/output.css" /> 
+</head>
+<body>
+    <div class="container bg-amber-100">
+        <h2 class="text-center text-orange-900 bg-amber-200 text-4xl font-black mt-10 p-4">QUẢN LÝ SẢN PHẨM</h2>
+        <!-- Danh sách sản phẩm  -->
+        <h3 class="text-xl text-gray-500 font-thin mt-10">Danh sách sản phẩm</h3>
+        <hr >
+        <!-- Thêm sản phẩm và Tìm sản phẩm-->
+        <div class="mt-10 flex justify-between">
+            <!-- Thêm mới sản phẩm -->
+            <button class="p-2 rounded-lg hover:border hover:border-amber-400 hover:text-amber-500 hover:bg-white text-white bg-amber-400 text-xl font-thin">
+                <i class="fa fa-plus"></i>
+                <span>Thêm sản phẩm</span>
+            </button>
+            <!-- Tìm sản phẩm -->
+            <div>
+                <input type="text" class="p-2 bg-amber-200 rounded-lg border-2 border-amber-500 text-white hover:bg-white hover:text-amber-400 hover:border-2 hover:border-amber-300 " placeholder="Nhập sản phẩm cần tìm">
+                <span class="p-2 bg-amber-500 rounded-lg border-2 border-amber-500 text-white hover:bg-white hover:text-amber-400 hover:border-2 hover:border-amber-300 "><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+
+        <!-- Table sản phẩm -->
+        <div class="border-collapse mt-10 justify-center items-center flex">
+            <table class="">
+                <thead>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Số Thứ Tự</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Tên Sản Phẩm</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Loại</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Giá</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Hình Ảnh</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Mô Tả</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Số Lượng Bánh</th>
+                    <th class="border border-amber-600 px-4 py-2 text-amber-500">Sửa/Xoá</th>
+                </thead>
+                <tbody>
+                    <div class="tblDanhSachSP"></div>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal -->
+        <div>
+            
+        </div>
+    </div>
+
+    <!--  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../controllers/mainAdmin.js"></script>
+</body>
+</html>
