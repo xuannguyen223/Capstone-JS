@@ -4,12 +4,355 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../assets/img/Favikon-1.png" type="image/png" />
+    <title>Xuân Dolcino - Pastry & Cake Shop</title>
+
+    <!-- GOOGLE FONT: Montserrat, Cormorant, Great Vibes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME (ICON) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ANIMATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- MY CSS  -->
     <link rel="stylesheet" href="../../assets/css/output.css" />
-    <title>Document</title>
   </head>
   <body>
-    <h1 class="text-indigo-400 font-bold text-5xl container text-center">
-      Hello Word!!!
-    </h1>
+    <!-- Header -->
+    <header>
+      <div class="header">
+        <div class="header__logo">
+          <a href="./index.html">
+            <img
+              src="../../assets/img/logo.png"
+              alt=""
+              class="transform lg:scale-[0.7] scale-[0.4] relative"
+            />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__right">
+          <a href="#" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+          </a>
+          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
+          <button class="login">
+            <i class="fa fa-user"></i><span>Login</span>
+          </button>
+        </div>
+        <div class="header__miniNav">
+          <button id="miniNav">
+            <img
+              src="../../assets/img/svgexport-4.svg"
+              alt="miniNav"
+              class="transform scale-75"
+            />
+          </button>
+        </div>
+      </div>
+      <div id="subMenu" class="subMenu hidden">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Cart</a></li>
+          <li><button>LOGIN</button></li>
+        </ul>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <div class="carousel">
+        <div id="carouselContent" class="carousel__content">
+          <h5 class="animate__animated animate__slideInDown">
+            Sweet bites for you
+          </h5>
+          <h1
+            class="animate__animated animate__zoomIn animate__delay-0.5s duration-500"
+          >
+            TASTEFUL
+          </h1>
+          <div
+            class="hr__main animate__animated animate__fadeIn animate__delay-0.5s"
+          ></div>
+          <p class="animate__animated animate__fadeIn animate__delay-1s">
+            It's always good time for sweets! Made with care and prepared with
+            love, our sweets are all you might need to make every day special.
+            Find your favorite now.
+          </p>
+          <div
+            class="carousel__button animate__animated animate__fadeIn animate__delay-2s"
+          >
+            <button class="btn1"><a href="#">DISCOVER</a></button>
+            <button class="btn2"><a href="#">SHOP NOW</a></button>
+          </div>
+        </div>
+      </div>
+      <!-- featured-products -->
+      <div class="featured__products">
+        <div class="featured__products__content">
+          <h5 class="text-5xl">best deals for you</h5>
+          <h1>Cups of Cutenes</h1>
+          <div class="hr__main"></div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad ipsam
+            itaque ullam saepe necessitatibus laborum aperiam sed, provident
+            repellendus eaque quam modi maxime unde cumque at consequuntur
+            assumenda!
+          </p>
+        </div>
+        <div id="productList" class="product__list -mt-12">
+          <div class="product__item">
+            <div class="product__item__img relative">
+              <img
+                src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+                alt=""
+              />
+              <div class="product__item__action">
+                <button class="btn2" onclick="productDetail()">
+                  SEE DETAIL
+                </button>
+                <div class="hr__main w-2/3"></div>
+                <button class="btn2" onclick="addToCart()">ADD TO CART</button>
+              </div>
+            </div>
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <!-- các div coppy để text -->
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <div class="product__item">
+            <img
+              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+              alt=""
+            />
+            <div class="product__item__content">
+              <h1 class="productName">Éclair Cup</h1>
+              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
+              <p class="productPrice">$19</p>
+            </div>
+          </div>
+          <!-- hết div coppy -->
+        </div>
+      </div>
+      <!-- seeMore -->
+      <div class="seeMore">
+        <button><a href="#">SEE MORE</a></button>
+      </div>
+    </main>
+    <!-- footer  -->
+    <footer>
+      <div class="footer__main">
+        <div id="contact" class="footer__contact">
+          <h2>Contact</h2>
+          <p>
+            <a href="#contact">Heinrichstrasse 267c / 3. Stock 8005 Zürich</a>
+            <br />
+            E-mail: <a href="#contact">dolcino@qodeinteractive.com</a> <br />
+            Phone: <a href="#contact">+88(0) 101 0000 000</a>
+          </p>
+        </div>
+        <div class="footer__content">
+          <p class="footer__logo">
+            <a href="./index.html"
+              ><img src="../../assets/img/logo-footer.png" alt="footer logo"
+            /></a>
+          </p>
+          <div class="footer__content__title">
+            <h5>eat what you love</h5>
+            <h1>Dolcino pastries</h1>
+            <div class="hr__main"></div>
+          </div>
+          <div class="footer__content__body">
+            <p>
+              1926. - Year of beggining. There are many variations of passa ges
+              of Lorem Ipsum available, but the majority suffered alter.
+            </p>
+          </div>
+          <div class="social__icons">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://x.com/" target="_blank"
+              ><i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer__map">
+          <a
+            href="https://www.google.com/maps/place/Heinrichstrasse+267C%2F3.+Stock,+8005+Z%C3%BCrich,+Th%E1%BB%A5y+S%C4%A9/@47.3887548,8.5195702,17z/data=!4m5!3m4!1s0x47900a4016ed9141:0x9a1b2665f5d7c650!8m2!3d47.3887904!4d8.5216527?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+            target="_blank"
+            ><img src="../../assets/img/footer-map.png" alt="footer-map"
+          /></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          © 2018 <a href="#contact">Qode Interactive</a>, All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <!-- POPUP SHOW DETAIL PRODUCT -->
+    <div
+      id="popup"
+      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="product__modal">
+        <h2 id="popup-title">Product Information</h2>
+        <form id="popup-content">
+          <div class="popup__content__main">
+            <!-- Hình ảnh -->
+            <div class="w-1/3">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Product Image"
+                class="max-w-56 h-auto object-cover rounded-lg"
+              />
+            </div>
+
+            <!-- Giá, mô tả ngắn, số lượng -->
+            <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
+              <h2 id="product-title">Product Name</h2>
+              <p id="product-description">
+                Short description about the product
+              </p>
+              <p id="product-price">Price: $100</p>
+              <!-- Số lượng  -->
+              <div class="product__quantity">
+                <button id="decrease-quantity" class="btn3">-</button>
+                <span id="product-quantity" class="text-xl mx-2">1</span>
+                <button id="increase-quantity" class="btn3">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phần mô tả chi tiết sản phẩm -->
+          <div id="popup-full-description">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Repudiandae temporibus dolores, officia asperiores, tenetur, ab
+              eum esse voluptates repellat tempora doloremque. Quibusdam
+              pariatur quam aut asperiores consequatur praesentium nobis quasi
+              vero nulla nemo nihil consectetur explicabo sapiente ex doloremque
+              minima ipsum voluptate dolores hic, incidunt, inventore odio, a
+              ipsam nisi.
+            </p>
+          </div>
+        </form>
+        <button id="close-popup">Close</button>
+      </div>
+    </div>
+    <!-- MY JS  -->
+    <script type="module" src="../../assets/js/dashboardUser.js"></script>
   </body>
 </html>
