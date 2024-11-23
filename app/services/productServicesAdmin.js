@@ -11,4 +11,34 @@ export const productServices = {
             method: "GET",
         });
     },
+    // Xoá
+    delProduct: (id) =>{
+        return axios({
+            url: `${BASE_URL}/${id}`,
+            method: "DELETE",
+        });
+    },
+    // addProduct
+    addProduct: (product) => {
+        return axios({
+            url: BASE_URL,
+            method: "POST",
+            data: product,
+        });
+    },
+    // Lấy item theo id
+    getProductByID: (id) =>{
+        return axios ({
+            url: `${BASE_URL}/${id}`,
+            method: "GET",
+        });
+    },
+    // Cập nhật product theo id
+    updateProduct: (id, product) => {
+        return axios({
+            url: `${BASE_URL}/${id}`,
+            method: "PUT",
+            data: product,
+        });
+    },
 };

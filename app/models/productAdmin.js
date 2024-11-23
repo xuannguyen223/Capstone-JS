@@ -7,7 +7,7 @@ export default class Product{
         this.price = price,
         this.image = image,
         this.description = description,
-        this.availability = availability,
-        this.descriptions = descriptions
+        this.availability = availability
+        
     };
 };
