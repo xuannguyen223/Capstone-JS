@@ -554,6 +554,42 @@ video {
   display: none;
 }
 
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .fixed {
   position: fixed;
 }
@@ -579,12 +615,41 @@ video {
   margin-right: 0.5rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .-mt-12 {
   margin-top: -3rem;
 }
 
+.-mt-20 {
+  margin-top: -5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .ml-20 {
   margin-left: 5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
@@ -593,6 +658,10 @@ video {
 
 .hidden {
   display: none;
+}
+
+.h-\[100vh\] {
+  height: 100vh;
 }
 
 .h-auto {
@@ -661,6 +730,25 @@ video {
      object-fit: cover;
 }
 
+.p-64 {
+  padding: 16rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -669,6 +757,24 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity, 1));
 }
 
 .backdrop-blur-sm {
@@ -1773,6 +1879,208 @@ button#close-popup:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* ---------------------------------- SHOP.HTML ---------------------------------- */
+
+.shop {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .shop {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shop {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shop {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .shop {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .shop {
+    max-width: 1536px;
+  }
+}
+
+.shop {
+  padding-top: 8rem;
+}
+
+.shop__banner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  text-align: left;
+  background: url("../../assets/img/shop-banner.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: zoomIn 20s ease-in-out infinite;
+}
+
+.shop__banner h1 {
+  margin-top: 0.75rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .shop__banner h1 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shop__banner h1 {
+    letter-spacing: 0.05em;
+  }
+}
+
+.shop__search {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .shop__search {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shop__search {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shop__search {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .shop__search {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .shop__search {
+    max-width: 1536px;
+  }
+}
+
+.shop__search {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  text-align: right;
+}
+
+.btn__dropdown {
+  border-start-start-radius: 0.5rem;
+  border-end-start-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(0 0 0 / 0.5);
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.05em;
+  color: rgb(0 0 0 / 0.5);
+}
+
+.btn__dropdown:hover {
+  border-color: rgb(0 0 0 / 0.7);
+  color: rgb(0 0 0 / 0.7);
+}
+
+.btn__dropdown:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+#dropdownMenu {
+  position: absolute;
+  left: 0px;
+  z-index: 30;
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  background-color: rgb(255 255 255 / 0.1);
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-backdrop-blur: blur(12px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.dropdown__content {
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-family: "Cormorant", serif;
+}
+
+.btn__showSelected {
+  margin-top: 1rem;
+  margin-left: -0.25rem;
+  border-start-end-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(0 0 0 / 0.7);
+  background-color: rgb(0 0 0 / 0.7);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.btn__showSelected:hover {
+  border-color: rgb(0 0 0 / 0.8);
+  background-color: rgb(0 0 0 / 0.8);
+}
+
+.btn__showSelected:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 @media (min-width: 768px) {

@@ -382,3 +382,46 @@ button#close-popup {
 .product__quantity {
   @apply flex items-center mt-4 gap-4;
 }
+
+/* ---------------------------------- SHOP.HTML ---------------------------------- */
+
+.shop {
+  @apply container pt-32;
+}
+
+.shop__banner {
+  @apply w-full text-left px-16 pt-32 pb-20 mx-auto;
+  background: url("../../assets/img/shop-banner.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: zoomIn 20s ease-in-out infinite;
+}
+
+.shop__banner h1 {
+  @apply mt-3 text-6xl md:text-8xl lg:tracking-wider px-10;
+}
+
+.shop__search {
+  @apply my-20 container text-right px-20;
+}
+
+.btn__dropdown {
+  @apply text-black/50 px-12 py-3 text-xl rounded-s-lg tracking-wider
+  border border-black/50 focus:outline-none
+  hover:text-black/70 hover:border-black/70;
+}
+
+#dropdownMenu {
+  @apply absolute z-30 left-0 mt-2 w-full bg-white/10 backdrop-blur-md border rounded-md shadow-lg;
+}
+
+.dropdown__content {
+  @apply p-2 text-2xl text-left fontCormorant;
+}
+
+.btn__showSelected {
+  @apply mt-4 -ml-1 px-4 py-3 rounded-e-lg bg-black/70 border border-black/70
+  text-white focus:outline-none text-xl font-bold
+  hover:bg-black/80  hover:border-black/80;
+}

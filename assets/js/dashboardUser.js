@@ -64,18 +64,8 @@ window.addEventListener("load", handleCarousel);
 
 // *************** PRODUCT ******************
 function productDetail() {
-  console.log("vừa click vào see detail");
-  // Lấy thông tin sản phẩm từ data attribute
-  // const productName = this.getAttribute("data-product");
-
   // Hiển thị popup và cập nhật thông tin sản phẩm
   document.getElementById("popup").classList.remove("hidden");
-  // document.getElementById(
-  //   "popup-title"
-  // ).textContent = `Thông tin về ${productName}`;
-  // document.getElementById(
-  //   "popup-content"
-  // ).textContent = `Chi tiết thông tin về ${productName} sẽ hiển thị ở đây.`;
 }
 
 // Lắng nghe sự kiện click để đóng popup
@@ -84,3 +74,38 @@ document.getElementById("close-popup").addEventListener("click", function () {
 });
 
 window.productDetail = productDetail;
+
+//  --- PRODUCT CATEGORIES ---
+
+// Hàm hiển ẩn dropdown
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  dropdownMenu.classList.toggle("hidden");
+}
+
+window.toggleDropdown = toggleDropdown;
+
+// Hàm hiển thị các lựa chọn đã chọn
+function showSelected() {
+  const checkboxes = document.querySelectorAll(
+    '#dropdownMenu input[type="checkbox"]:checked'
+  );
+  const selectedValues = Array.from(checkboxes).map(
+    (checkbox) => checkbox.value
+  );
+  document.getElementById("selectedValues").innerText =
+    "Selected categories: " + selectedValues.join(", ");
+}
+
+window.showSelected = showSelected;
+
+// Để đóng dropdown khi click bên ngoài màn hình
+window.onclick = function (event) {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const dropdownButton = document.querySelector(
+    "button[onclick='toggleDropdown()']"
+  );
+  if (!dropdownMenu.contains(event.target) && event.target !== dropdownButton) {
+    dropdownMenu.classList.add("hidden");
+  }
+};
