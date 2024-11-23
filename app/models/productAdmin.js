@@ -6,7 +6,7 @@ export default class Product{
         this.type = type,
         this.price = price,
         this.image = image,
-        this.descriptions = description,
+        this.description = description,
         this.availability = availability,
         this.descriptions = descriptions
     };
