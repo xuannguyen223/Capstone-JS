@@ -1,3 +1,4 @@
+<!-- TRANG GIỎ HÀNG: HOÀNG -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -91,10 +92,44 @@
     </header>
     <!-- main -->
     <main>
-      <div class="h-[100vh] p-64 text-2xl mx-auto text-red-400">
-        Khi nào em code trang giỏ hàng thì bỏ div này thêm nội dung của em vào
-        ha. Các phần khác của body (header, footer....js, css...) chị code xong
-        rồi em ko cần chỉnh nhoa!
+      <div
+        class="container pt-40 pb-20 flex items-center justify-center flex-col"
+      >
+        <div class="text__image">
+          <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
+          <img src="../../assets/img/banner.jpg" alt="" />
+        </div>
+        <!-- Table -->
+        <div class="mt-20">
+          <div class="overflow-x-auto md:overflow-visible">
+            <table
+              class="table-auto w-full border-collapse border border-gray-300"
+            >
+              <thead>
+                <tr class="bg-gray-100 text-left text-sm font-semibold">
+                  <th class="p-4 border border-gray-300">
+                    <span class="sr-only">Remove item</span>
+                  </th>
+                  <th class="p-4 border border-gray-300">
+                    <span class="sr-only">Thumbnail image</span>
+                  </th>
+                  <th class="p-4 border border-gray-300">Product</th>
+                  <th class="p-4 border border-gray-300">Price</th>
+                  <th class="p-4 border border-gray-300">Quantity</th>
+                  <th class="p-4 border border-gray-300">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="mt-52 text-center">
+          <button
+            class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white md:px-6 md:py-3 md:text-lg lg:px-8 lg:py-4 lg:text-xl"
+          >
+            <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
+          </button>
+        </div>
       </div>
     </main>
     <!-- footer  -->

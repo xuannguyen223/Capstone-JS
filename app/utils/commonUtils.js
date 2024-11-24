@@ -1,3 +1,3 @@
-export function getEle(selector) {
+export const getEle = (selector) => {
   return document.querySelector(selector);
 }

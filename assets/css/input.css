@@ -432,3 +432,28 @@ button#close-popup {
 }
 
 /* ---------------------------------- END SHOP.HTML ---------------------------------- */
+/* BODY CART */
+.text__image {
+  position: relative;
+  display: inline-block;
+}
+
+.text__image img {
+  width: 100%;
+  height: auto;
+}
+
+.text__content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: black;
+  font-weight: 900;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.text__cart a {
+  font-size: 10px;
+}
