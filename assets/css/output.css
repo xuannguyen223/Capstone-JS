@@ -1165,6 +1165,10 @@ input:checked + .toggle-bg {
   margin-top: 13rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .block {
   display: block;
 }
@@ -1259,6 +1263,10 @@ input:checked + .toggle-bg {
 
 .flex-shrink {
   flex-shrink: 1;
+}
+
+.table-auto {
+  table-layout: auto;
 }
 
 .border-collapse {
@@ -1367,6 +1375,10 @@ input:checked + .toggle-bg {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .overflow-y-auto {
@@ -1607,6 +1619,10 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1795,9 +1811,12 @@ input:checked + .toggle-bg {
   color: black;
   font-weight: 900;
   padding: 10px 20px;
-  font-size: 60px;
   font-weight: bold;
   border-radius: 5px;
+}
+
+.text__cart a{
+  font-size: 10px;
 }
 
 .hover\:border:hover {
@@ -1896,6 +1915,11 @@ input:checked + .toggle-bg {
 .hover\:text-pink-500:hover {
   --tw-text-opacity: 1;
   color: rgb(231 70 148 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(193 156 85 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-red-500:hover {
@@ -2037,8 +2061,59 @@ input:checked + .toggle-bg {
     inset: 0px;
   }
 
+  .md\:overflow-visible {
+    overflow: visible;
+  }
+
   .md\:p-5 {
     padding: 1.25rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .md\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 

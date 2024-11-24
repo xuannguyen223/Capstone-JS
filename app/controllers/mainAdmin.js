@@ -42,7 +42,9 @@ const renderProductList = (arrProduct) => {
     document.querySelector("#tblDanhSachSP").innerHTML=content;
 };
 
-
+// Ua Hoang sao em k load san pham ra ha
+// dạ là sản phẩm của em chưa load đc ra á anh, nó bị lỗi cái buttoon á anh
+// k phải nha, do em xoá cái id của table rồi á
 
 // Hàm sử dụng chung của chức năng thêm
 const getInfo = () => {
@@ -87,7 +89,7 @@ const fetchProductList = () =>{
     .then((response) => {
         console.log("response: ", response.data);
 
-        renderProductList(response.date)
+        renderProductList(response.data)
     }).catch((err) => {
         console.error("err: ", err);
     });

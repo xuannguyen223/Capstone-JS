@@ -21,7 +21,9 @@
     color: black; 
     font-weight: 900;
     padding: 10px 20px;
-    font-size: 60px; 
     font-weight: bold;
     border-radius: 5px;
+}
+.text__cart a{
+    font-size: 10px;
 }
