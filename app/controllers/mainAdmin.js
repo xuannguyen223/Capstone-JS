@@ -172,7 +172,7 @@ const addProduct = () => {
 };
 window.addProduct = addProduct;
 
-// edit
+
 // edit
 const editProduct = (id) => {
     productServices
@@ -201,7 +201,8 @@ const editProduct = (id) => {
         getEle("#btnCapNhat").disabled = false;
 
         // Hiển thị modal
-        $("#myModal").modal("show");
+        const modal = document.getElementById("myModal");
+        modal.classList.remove("hidden");
         })
         .catch((error) => {
         console.error("error: ", error);
