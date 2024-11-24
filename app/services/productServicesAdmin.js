@@ -1,6 +1,8 @@
 // PHẦN PRODUCT SERVICES CỦA ADMIN: HOÀNG
 
-import BASE_URL from "../utils/apiUrls"
+// import BASE_URL from "../utils/apiUrls.js"
+
+const BASE_URL = "https://6725e6f6c39fedae05b63580.mockapi.io/productList"
 
 // Tạo 1 Object để lưu trữ
 export const productServices = {

@@ -39,8 +39,9 @@ const renderProductList = (arrProduct) => {
             </button>
         </td>
     </tr>`).join("");
+    document.querySelector("#tblDanhSachSP").innerHTML=content;
 };
-document.querySelector("#tblDanhSachSP").innerHTML=content;
+
 
 
 // Hàm sử dụng chung của chức năng thêm
