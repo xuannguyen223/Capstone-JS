@@ -1,1 +1,264 @@
 <!-- TRANG SẢN PHẨM: XUÂN -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../assets/img/Favikon-1.png" type="image/png" />
+    <title>Xuân Dolcino - Pastry & Cake Shop</title>
+
+    <!-- GOOGLE FONT: Montserrat, Cormorant, Great Vibes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME (ICON) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ANIMATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- MY CSS  -->
+    <link rel="stylesheet" href="../../assets/css/output.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header">
+        <div class="header__logo">
+          <a href="./index.html">
+            <img
+              src="../../assets/img/logo.png"
+              alt=""
+              class="transform lg:scale-[0.7] scale-[0.4] relative"
+            />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li class="active">
+              <a href="./shop.html" target="_blank">Shop</a>
+            </li>
+            <li>
+              <a href="#contact" target="_blank">Contact</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__right">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+          </a>
+          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
+          <button class="login">
+            <i class="fa fa-user"></i><span>Login</span>
+          </button>
+        </div>
+        <div class="header__miniNav">
+          <button id="miniNav">
+            <img
+              src="../../assets/img/svgexport-4.svg"
+              alt="miniNav"
+              class="transform scale-75"
+            />
+          </button>
+        </div>
+      </div>
+      <div id="subMenu" class="subMenu hidden">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./shop.html" target="_blank">Shop</a></li>
+          <li><a href="#contact" target="_blank">Contact</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="./cart.html" target="_blank">Cart</a></li>
+          <li><button>LOGIN</button></li>
+        </ul>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <div class="shop">
+        <div class="shop__banner">
+          <h1 class="animate__animated animate__fadeInLeft animate__delay-0.5s">
+            SHOP
+          </h1>
+        </div>
+        <div class="shop__search">
+          <div class="relative inline-block">
+            <!-- Button dropdown -->
+            <button class="btn__dropdown" onclick="toggleDropdown()">
+              CATEGORIES
+            </button>
+
+            <!-- Dropdown content -->
+            <div id="dropdownMenu" class="hidden">
+              <div class="dropdown__content">
+                <label class="block mb-2">
+                  <input type="checkbox" value="Chocobar" class="mr-2" />
+                  Chocobar
+                </label>
+                <label class="block mb-2">
+                  <input type="checkbox" value="Cupcakes" class="mr-2" />
+                  Cupcakes
+                </label>
+                <label class="block mb-2">
+                  <input type="checkbox" value="Truffles" class="mr-2" />
+                  Truffles
+                </label>
+                <label class="block mb-2">
+                  <input type="checkbox" value="Raw Cakes" class="mr-2" /> Raw
+                  Cakes
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- button để showSelected value-->
+          <button class="btn__showSelected" onclick="showSelected()">
+            <i class="fa fa-search"></i>
+          </button>
+          <!-- Kết quả lựa chọn -->
+          <p id="selectedValues"></p>
+        </div>
+        <!-- Phần productList -->
+        <div id="productList" class="product__list container px-20 pt-16"></div>
+      </div>
+    </main>
+    <!-- footer  -->
+    <footer>
+      <div class="footer__main">
+        <div id="contact" class="footer__contact">
+          <h2>Contact</h2>
+          <p>
+            <a href="#contact">Heinrichstrasse 267c / 3. Stock 8005 Zürich</a>
+            <br />
+            E-mail: <a href="#contact">dolcino@qodeinteractive.com</a> <br />
+            Phone: <a href="#contact">+88(0) 101 0000 000</a>
+          </p>
+        </div>
+        <div class="footer__content">
+          <p class="footer__logo">
+            <a href="./index.html"
+              ><img src="../../assets/img/logo-footer.png" alt="footer logo"
+            /></a>
+          </p>
+          <div class="footer__content__title">
+            <h5>eat what you love</h5>
+            <h1>Dolcino pastries</h1>
+            <div class="hr__main"></div>
+          </div>
+          <div class="footer__content__body">
+            <p>
+              1926. - Year of beggining. There are many variations of passa ges
+              of Lorem Ipsum available, but the majority suffered alter.
+            </p>
+          </div>
+          <div class="social__icons">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://x.com/" target="_blank"
+              ><i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer__map">
+          <a
+            href="https://www.google.com/maps/place/Heinrichstrasse+267C%2F3.+Stock,+8005+Z%C3%BCrich,+Th%E1%BB%A5y+S%C4%A9/@47.3887548,8.5195702,17z/data=!4m5!3m4!1s0x47900a4016ed9141:0x9a1b2665f5d7c650!8m2!3d47.3887904!4d8.5216527?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+            target="_blank"
+            ><img src="../../assets/img/footer-map.png" alt="footer-map"
+          /></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          © 2018 <a href="#contact">Qode Interactive</a>, All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <!-- POPUP SHOW DETAIL PRODUCT -->
+    <div
+      id="popup"
+      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="product__modal">
+        <h2 id="popup-title">Product Information</h2>
+        <form id="popup-content">
+          <div class="popup__content__main">
+            <!-- Hình ảnh -->
+            <div class="w-1/3">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Product Image"
+                class="max-w-56 h-auto object-cover rounded-lg"
+              />
+            </div>
+
+            <!-- Giá, mô tả ngắn, số lượng -->
+            <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
+              <h2 id="product-title">Product Name</h2>
+              <p id="product-type">Type of products</p>
+              <p id="product-price">Price: $100</p>
+              <!-- Số lượng  -->
+              <div class="product__quantity">
+                <button id="decrease-quantity" class="btn3">-</button>
+                <span id="product-quantity" class="text-xl mx-2">1</span>
+                <button id="increase-quantity" class="btn3">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phần mô tả chi tiết sản phẩm -->
+          <div id="popup-full-description">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Repudiandae temporibus dolores, officia asperiores, tenetur, ab
+              eum esse voluptates repellat tempora doloremque. Quibusdam
+              pariatur quam aut asperiores consequatur praesentium nobis quasi
+              vero nulla nemo nihil consectetur explicabo sapiente ex doloremque
+              minima ipsum voluptate dolores hic, incidunt, inventore odio, a
+              ipsam nisi.
+            </p>
+          </div>
+        </form>
+        <button id="close-popup">Close</button>
+      </div>
+    </div>
+
+    <!-- MY AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MY JS  -->
+    <script type="module" src="../../assets/js/dashboardUser.js"></script>
+    <script type="module" src="../controllers/mainUser.js"></script>
+  </body>
+</html>

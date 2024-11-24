@@ -1,54 +1,199 @@
 <!-- TRANG GIỎ HÀNG: HOÀNG -->
-<!--  -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../assets/img/Favikon-1.png" type="image/png" />
+    <title>Xuân Dolcino - Pastry & Cake Shop</title>
+
+    <!-- GOOGLE FONT: Montserrat, Cormorant, Great Vibes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME (ICON) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ANIMATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- MY CSS  -->
     <link rel="stylesheet" href="../../assets/css/output.css" />
-</head>
-<body>
-    <!-- HEADER -->
-    <!-- BODY -->
-    <div class="container mt-10 flex items-center justify-center flex-col">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header">
+        <div class="header__logo">
+          <a href="./index.html">
+            <img
+              src="../../assets/img/logo.png"
+              alt=""
+              class="transform lg:scale-[0.7] scale-[0.4] relative"
+            />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li class="active">
+              <a href="./shop.html" target="_blank">Shop</a>
+            </li>
+            <li>
+              <a href="#contact" target="_blank">Contact</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__right">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+          </a>
+          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
+          <button class="login">
+            <i class="fa fa-user"></i><span>Login</span>
+          </button>
+        </div>
+        <div class="header__miniNav">
+          <button id="miniNav">
+            <img
+              src="../../assets/img/svgexport-4.svg"
+              alt="miniNav"
+              class="transform scale-75"
+            />
+          </button>
+        </div>
+      </div>
+      <div id="subMenu" class="subMenu hidden">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./shop.html" target="_blank">Shop</a></li>
+          <li><a href="#contact" target="_blank">Contact</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="./cart.html" target="_blank">Cart</a></li>
+          <li><button>LOGIN</button></li>
+        </ul>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <div
+        class="container pt-40 pb-20 flex items-center justify-center flex-col"
+      >
         <div class="text__image">
-            <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
-            <img src="../../assets/img/banner.jpg" alt="">
+          <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
+          <img src="../../assets/img/banner.jpg" alt="" />
         </div>
         <!-- Table -->
         <div class="mt-20">
-            <div class="overflow-x-auto md:overflow-visible">
-                <table class="table-auto w-full border-collapse border border-gray-300">
-                    <thead>
-                        <tr class="bg-gray-100 text-left text-sm font-semibold">
-                            <th class="p-4 border border-gray-300">
-                                <span class="sr-only">Remove item</span>
-                            </th>
-                            <th class="p-4 border border-gray-300">
-                                <span class="sr-only">Thumbnail image</span>
-                            </th>
-                            <th class="p-4 border border-gray-300">Product</th>
-                            <th class="p-4 border border-gray-300">Price</th>
-                            <th class="p-4 border border-gray-300">Quantity</th>
-                            <th class="p-4 border border-gray-300">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
-            </div>
+          <div class="overflow-x-auto md:overflow-visible">
+            <table
+              class="table-auto w-full border-collapse border border-gray-300"
+            >
+              <thead>
+                <tr class="bg-gray-100 text-left text-sm font-semibold">
+                  <th class="p-4 border border-gray-300">
+                    <span class="sr-only">Remove item</span>
+                  </th>
+                  <th class="p-4 border border-gray-300">
+                    <span class="sr-only">Thumbnail image</span>
+                  </th>
+                  <th class="p-4 border border-gray-300">Product</th>
+                  <th class="p-4 border border-gray-300">Price</th>
+                  <th class="p-4 border border-gray-300">Quantity</th>
+                  <th class="p-4 border border-gray-300">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
         <div class="mt-52 text-center">
-            <button class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white 
-            md:px-6 md:py-3 md:text-lg 
-            lg:px-8 lg:py-4 lg:text-xl">
-                <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
-            </button>
+          <button
+            class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white md:px-6 md:py-3 md:text-lg lg:px-8 lg:py-4 lg:text-xl"
+          >
+            <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
+          </button>
         </div>
-        
-    </div>
-    <!-- FOOTER -->
-</body>
+      </div>
+    </main>
+    <!-- footer  -->
+    <footer>
+      <div class="footer__main">
+        <div id="contact" class="footer__contact">
+          <h2>Contact</h2>
+          <p>
+            <a href="#contact">Heinrichstrasse 267c / 3. Stock 8005 Zürich</a>
+            <br />
+            E-mail: <a href="#contact">dolcino@qodeinteractive.com</a> <br />
+            Phone: <a href="#contact">+88(0) 101 0000 000</a>
+          </p>
+        </div>
+        <div class="footer__content">
+          <p class="footer__logo">
+            <a href="./index.html"
+              ><img src="../../assets/img/logo-footer.png" alt="footer logo"
+            /></a>
+          </p>
+          <div class="footer__content__title">
+            <h5>eat what you love</h5>
+            <h1>Dolcino pastries</h1>
+            <div class="hr__main"></div>
+          </div>
+          <div class="footer__content__body">
+            <p>
+              1926. - Year of beggining. There are many variations of passa ges
+              of Lorem Ipsum available, but the majority suffered alter.
+            </p>
+          </div>
+          <div class="social__icons">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://x.com/" target="_blank"
+              ><i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer__map">
+          <a
+            href="https://www.google.com/maps/place/Heinrichstrasse+267C%2F3.+Stock,+8005+Z%C3%BCrich,+Th%E1%BB%A5y+S%C4%A9/@47.3887548,8.5195702,17z/data=!4m5!3m4!1s0x47900a4016ed9141:0x9a1b2665f5d7c650!8m2!3d47.3887904!4d8.5216527?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+            target="_blank"
+            ><img src="../../assets/img/footer-map.png" alt="footer-map"
+          /></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          © 2018 <a href="#contact">Qode Interactive</a>, All Rights Reserved
+        </p>
+      </div>
+    </footer>
+    <!-- MY JS  -->
+    <script type="module" src="../../assets/js/dashboardUser.js"></script>
+  </body>
 </html>
