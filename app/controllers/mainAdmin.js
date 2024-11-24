@@ -30,11 +30,12 @@ const renderProductList = (arrProduct) => {
         <td>${description}</td>
         <td>${availability}</td>
         <td>
-            <button class="p-2 rounded-lg hover:border hover:border-amber-400 hover:text-amber-500 hover:bg-white text-white bg-amber-400 text-xl font-thin" onclick="editProduct('${id}')">
+            <button class="p-2 my-3 border rounded-lg hover:border hover:border-amber-400 hover:text-amber-500 hover:bg-white text-white bg-amber-400 text-xl font-thin" 
+            onclick="editProduct('${id}')">
                 <span>Sửa</span>
             </button>
             <br/>
-            <button class="p-2 rounded-lg hover:border hover:border-red-400 hover:text-red-500 hover:bg-white text-white bg-red-400 text-xl font-thin"
+            <button class="p-2 border rounded-lg hover:border hover:border-red-400 hover:text-red-500 hover:bg-white text-white bg-red-400 text-xl font-thin"
             onclick="delProduct('${id}')">
                 <span>Xoá</span>
             </button>
@@ -172,6 +173,7 @@ const addProduct = () => {
 window.addProduct = addProduct;
 
 // edit
+// edit
 const editProduct = (id) => {
     productServices
     .getProductByID(id)
@@ -205,10 +207,7 @@ const editProduct = (id) => {
         console.error("error: ", error);
         });
     };
-
-  // Gán hàm editProduct vào window để có thể gọi từ HTML
     window.editProduct = editProduct;
-
 
 // update
 const updateProduct = () =>{
@@ -230,29 +229,32 @@ const updateProduct = () =>{
 window.updateProduct = updateProduct;
 
     // Tìm kiếm sản phẩm theo tên
-    const searchProductByName = () =>{
+    const searchProductByName = () => {
         const keyword = getEle("#txtSearch").value.trim().toLowerCase();
-
+    
         productServices
-        .getProduct()
-        .then((response) =>{
-            console.log("response: ", response);
-            
-            const result = productList.filter((sp) => {
-                return sp.name.toLowerCase().includes(keyword);
+            .getProduct()
+            .then((response) => {
+                console.log("response: ", response);
+    
+                
+                const productList = response.data;
+                const result = productList.filter((sp) => {
+                    return sp.name.toLowerCase().includes(keyword);
+                });
+    
+                if (result.length > 0) {
+                    renderProductList(result);
+                } else {
+                    console.log("sp này không tồn tại");
+                }
+            })
+            .catch((error) => {
+                console.log("error: ", error);
             });
-            if(result.length > 0){
-                renderProductList(result);
-            }
-            else{
-                console.log("Sản phẩm này không tồn tại");
-            };
-        })
-        .catch((error) =>{
-            console.log("error: ", error);
-        });
     };
-window.searchProductByName = searchProductByName;
+    
+    window.searchProductByName = searchProductByName;
 
 
 // Xử lý nút dropdownButton 
