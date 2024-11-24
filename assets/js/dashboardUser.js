@@ -59,12 +59,19 @@ function handleCarousel() {
   }
 }
 
-window.addEventListener("resize", handleCarousel);
-window.addEventListener("load", handleCarousel);
+// Kiểm tra xem trang hiện tại có phải là index.html không thì mới gọi hàm
+// LƯU Ý: CHECK LẠI URL SAU KHI DELOY XEM CÒN ĐÚNG KO
+if (
+  window.location.pathname === "/app/views/index.html" ||
+  window.location.pathname === "/app/views/"
+) {
+  window.addEventListener("resize", handleCarousel);
+  window.addEventListener("load", handleCarousel);
+}
 
 // *************** PRODUCT ******************
 function productDetail() {
-  // Hiển thị popup và cập nhật thông tin sản phẩm
+  // Hiển thị popup và chứa thông tin sản phẩm ? => có thể lấy hàm này đem qua phần chính
   document.getElementById("popup").classList.remove("hidden");
 }
 
@@ -85,19 +92,7 @@ function toggleDropdown() {
 
 window.toggleDropdown = toggleDropdown;
 
-// Hàm hiển thị các lựa chọn đã chọn
-function showSelected() {
-  const checkboxes = document.querySelectorAll(
-    '#dropdownMenu input[type="checkbox"]:checked'
-  );
-  const selectedValues = Array.from(checkboxes).map(
-    (checkbox) => checkbox.value
-  );
-  document.getElementById("selectedValues").innerText =
-    "Selected categories: " + selectedValues.join(", ");
-}
-
-window.showSelected = showSelected;
+// Hàm hiển thị các lựa chọn đã chọn - xem bên mainUser.jd (*)
 
 // Để đóng dropdown khi click bên ngoài màn hình
 window.onclick = function (event) {

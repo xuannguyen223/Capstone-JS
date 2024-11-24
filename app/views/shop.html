@@ -10,10 +10,6 @@
     <!-- GOOGLE FONT: Montserrat, Cormorant, Great Vibes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
@@ -96,7 +92,6 @@
     </header>
     <!-- main -->
     <main>
-      <!-- Shop -->
       <div class="shop">
         <div class="shop__banner">
           <h1 class="animate__animated animate__fadeInLeft animate__delay-0.5s">
@@ -136,246 +131,11 @@
           <button class="btn__showSelected" onclick="showSelected()">
             <i class="fa fa-search"></i>
           </button>
+          <!-- Kết quả lựa chọn -->
+          <p id="selectedValues"></p>
         </div>
-        <!-- Kết quả lựa chọn -->
-        <p
-          id="selectedValues"
-          class="mt-2 text-4xl text-gray-600 container px-20 italic font-thin"
-        ></p>
         <!-- Phần productList -->
-        <div id="productList" class="product__list container px-20 -mt-20">
-          <div class="product__item">
-            <div class="product__item__img relative">
-              <img
-                src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-                alt=""
-              />
-              <div class="product__item__action">
-                <button class="btn2" onclick="productDetail()">
-                  SEE DETAIL
-                </button>
-                <div class="hr__main w-2/3"></div>
-                <button class="btn2" onclick="addToCart()">ADD TO CART</button>
-              </div>
-            </div>
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <!-- các div coppy để text -->
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <div class="product__item">
-            <img
-              src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-6-412x412.jpg"
-              alt=""
-            />
-            <div class="product__item__content">
-              <h1 class="productName">Éclair Cup</h1>
-              <p class="productCategories">Chocobar, Cupcakes, Truffles</p>
-              <p class="productPrice">$19</p>
-            </div>
-          </div>
-          <!-- hết div coppy -->
-        </div>
+        <div id="productList" class="product__list container px-20 pt-8"></div>
       </div>
     </main>
     <!-- footer  -->
@@ -461,9 +221,7 @@
             <!-- Giá, mô tả ngắn, số lượng -->
             <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
               <h2 id="product-title">Product Name</h2>
-              <p id="product-description">
-                Short description about the product
-              </p>
+              <p id="product-type">Type of products</p>
               <p id="product-price">Price: $100</p>
               <!-- Số lượng  -->
               <div class="product__quantity">
@@ -490,7 +248,17 @@
         <button id="close-popup">Close</button>
       </div>
     </div>
+
+    <!-- MY AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <!-- MY JS  -->
     <script type="module" src="../../assets/js/dashboardUser.js"></script>
+    <script type="module" src="../controllers/mainUser.js"></script>
   </body>
 </html>

@@ -620,14 +620,6 @@ video {
   margin-right: auto;
 }
 
-.-mt-12 {
-  margin-top: -3rem;
-}
-
-.-mt-20 {
-  margin-top: -5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -638,10 +630,6 @@ video {
 
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .block {
@@ -683,6 +671,12 @@ video {
 .scale-75 {
   --tw-scale-x: .75;
   --tw-scale-y: .75;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-90 {
+  --tw-scale-x: .9;
+  --tw-scale-y: .9;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -739,14 +733,13 @@ video {
   padding-right: 5rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-5xl {
@@ -759,22 +752,21 @@ video {
   line-height: 1.75rem;
 }
 
-.font-thin {
-  font-weight: 100;
+.font-semibold {
+  font-weight: 600;
 }
 
 .italic {
   font-style: italic;
 }
 
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
-}
-
 .text-red-400 {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .backdrop-blur-sm {
@@ -1436,9 +1428,8 @@ button.login:hover span {
 /* productList áp dụng cho cả trang Shop.html */
 
 .product__list {
+  margin-top: -3rem;
   display: grid;
-  --tw-scale-x: .9;
-  --tw-scale-y: .9;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
@@ -1921,6 +1912,7 @@ button#close-popup:hover {
 
 .shop {
   padding-top: 8rem;
+  padding-bottom: 2.5rem;
 }
 
 .shop__banner {
@@ -2082,6 +2074,58 @@ button#close-popup:hover {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+#selectedValues {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  #selectedValues {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  #selectedValues {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #selectedValues {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #selectedValues {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  #selectedValues {
+    max-width: 1536px;
+  }
+}
+
+#selectedValues {
+  position: relative;
+  left: 0px;
+  margin-top: 2.5rem;
+  margin-bottom: -5rem;
+  text-align: left;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 100;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+/* ---------------------------------- END SHOP.HTML ---------------------------------- */
 
 @media (min-width: 768px) {
   .md\:ml-8 {
