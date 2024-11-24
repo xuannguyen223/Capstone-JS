@@ -11,24 +11,25 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+  href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+  rel="stylesheet"
+/>
     <link rel="stylesheet" href="../../assets/css/output.css" />
   </head>
   <body>
     <div class="container bg-amber-100">
-      <h2
-        class="text-center text-orange-900 bg-amber-200 text-4xl font-black mt-10 p-4"
-      >
-        QUẢN LÝ SẢN PHẨM
-      </h2>
+      <h1 class="mb-4 text-2xl font-extrabold text-gray-900 md:text-5xl lg:text-4xl text-center mt-10"><span class="text-transparent bg-clip-text bg-gradient-to-r to-pink-600 from-primary">QUẢN LÝ SẢN PHẨM</span> </h1>
       <!-- Danh sách sản phẩm  -->
       <h3 class="text-xl text-gray-500 font-thin mt-10">Danh sách sản phẩm</h3>
       <hr />
       <!-- Thêm sản phẩm và Tìm sản phẩm-->
       <div class="mt-10 flex justify-between">
         <!-- Thêm mới sản phẩm -->
+        <!-- static-modal -->
         <button
-          data-modal-target="static-modal"
-          data-modal-toggle="static-modal"
+          data-modal-target="myModal"
+          data-modal-toggle="myModal"
           class="block text-white bg-amber-500 hover:bg-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           type="button"
           id="btnThemSP"
@@ -40,7 +41,7 @@
         <div>
           <input
             type="text"
-            class="p-2 bg-amber-200 rounded-lg border-2 border-amber-500 text-white hover:bg-white hover:text-amber-400 hover:border-2 hover:border-amber-300"
+            class="p-2 bg-white rounded-lg border-2 border-amber-500 text-white hover:bg-white hover:text-amber-400 hover:border-2 hover:border-amber-300"
             placeholder="Nhập sản phẩm cần tìm"
             id="txtSearch"
           />
@@ -88,7 +89,7 @@
 
       <!-- Modal -->
       <div
-        id="static-modal"
+        id="myModal"
         data-modal-backdrop="static"
         tabindex="-1"
         aria-hidden="true"
@@ -107,7 +108,7 @@
               <button
                 type="button"
                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-hide="static-modal"
+                data-modal-hide="myModal"
               >
                 <svg
                   class="w-3 h-3"
@@ -157,23 +158,54 @@
                 <div class="error text-red-400" id="errTenSP"></div>
               </div>
               <!-- Loại sản phẩm -->
-              <div>
-                <label for="LoaiSP" class="text-amber-500 text-xl font-thin"
-                  >Loại bánh</label
-                ><br />
-                <select
-                  name="LoaiSP[]"
-                  id="LoaiSP"
-                  class="p-2 border border-amber-500 rounded-lg"
-                  multiple
-                  size="3"
-                >
-                  <option value="rawcakes">Raw Cakes</option>
-                  <option value="cupcakes">Cupcakes</option>
-                  <option value="truffles">Truffles</option>
-                  <option value="chocobar">Chocobar</option>
-                </select>
-                <div class="error text-red-400" id="errLoaiSP"></div>
+              <div class="mb-4">
+                <!-- Label -->
+                <label for="LoaiSP" class="text-amber-500 text-xl font-thin">
+                  Loại bánh
+                </label>
+                <br />
+              
+                <!-- Dropdown -->
+                <div id="dropdownContainer" class="relative w-full">
+                  <button 
+                    id="dropdownButton"
+                    class="w-full p-2 border border-amber-500 rounded-lg flex justify-between items-center focus:outline-none bg-white"
+                  >
+                    <span>Chọn loại bánh</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 011.414 0L10 13.586l3.293-3.879a1 1 0 111.414 1.414l-4 4.5a1 1 0 01-1.414 0l-4-4.5a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+              
+                  <!-- Dropdown menu -->
+                  <div 
+                    id="dropdownMenu"
+                    class="absolute mt-1 w-full bg-white border border-amber-500 rounded-lg shadow-lg z-10 hidden max-h-40 overflow-y-auto"
+                  >
+                    <!-- Dropdown items -->
+                    <label class="flex items-center px-4 py-2 cursor-pointer hover:bg-amber-100">
+                      <input type="checkbox" class="form-checkbox h-4 w-4 text-amber-500 mr-3" value="Chocobar" />
+                      <span class="text-gray-700">Chocobar</span>
+                    </label>
+                    <label class="flex items-center px-4 py-2 cursor-pointer hover:bg-amber-100">
+                      <input type="checkbox" class="form-checkbox h-4 w-4 text-amber-500 mr-3" value="Cupcakes" />
+                      <span class="text-gray-700">Cupcakes</span>
+                    </label>
+                    <label class="flex items-center px-4 py-2 cursor-pointer hover:bg-amber-100">
+                      <input type="checkbox" class="form-checkbox h-4 w-4 text-amber-500 mr-3" value="Truffles" />
+                      <span class="text-gray-700">Truffles</span>
+                    </label>
+                    <label class="flex items-center px-4 py-2 cursor-pointer hover:bg-amber-100">
+                      <input type="checkbox" class="form-checkbox h-4 w-4 text-amber-500 mr-3" value="Raw Cakes" />
+                      <span class="text-gray-700">Raw Cakes</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Error message -->
+                <div class="error text-red-400 mt-2" id="errLoaiSP"></div>
+              
+                <!-- Info -->
                 <p class="text-gray-500 text-sm mt-2">
                   Bạn có thể chọn từ 2 đến 3 loại.
                 </p>
@@ -225,8 +257,8 @@
                   id="TinhTrang"
                   class="p-2 border border-amber-500 rounded-lg"
                 >
-                  <option value="con">Còn</option>
-                  <option value="het">Hết</option>
+                  <option value="Còn">Còn</option>
+                  <option value="Hết">Hết</option>
                 </select>
               </div>
             </div>
@@ -259,6 +291,11 @@
         </div>
       </div>
     </div>
+
+
+    <!-- <div>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, labore!
+    </div> -->
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
 
     <script
@@ -267,7 +304,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="module" src="../controllers/mainAdmin.js"></script>
   </body>
 </html>

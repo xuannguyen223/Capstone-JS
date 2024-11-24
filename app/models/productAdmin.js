@@ -1,6 +1,6 @@
 // PHẦN QUẢN TRỊ SẢN PHẨM CỦA ADMIN: HOÀNG
 export default class Product{
-    constructor(id, name, type, price, image, description, availability, descriptions){
+    constructor(id, name, type, price, image, description, availability){
         this.id = id,
         this.name = name,
         this.type = type,

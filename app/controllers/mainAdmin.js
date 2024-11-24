@@ -24,17 +24,18 @@ const renderProductList = (arrProduct) => {
         <td>${name}</td>
         <td>${type}</td>
         <td>${price}</td>
-        <td>${image}</td>
+        <td>
+            <img src="${image}" alt="${name}" class="h-20 w-20 object-cover rounded-lg" onerror="this.src='./assets/images/default.jpg'" />
+        </td>
         <td>${description}</td>
         <td>${availability}</td>
         <td>
-            <button class="p-2 rounded-lg hover:border hover:border-amber-400 hover:text-amber-500 hover:bg-white text-white bg-amber-400 text-xl font-thin" onclick="editProduct('${id}')>
-                <i class="fa fa-plus"></i>
+            <button class="p-2 rounded-lg hover:border hover:border-amber-400 hover:text-amber-500 hover:bg-white text-white bg-amber-400 text-xl font-thin" onclick="editProduct('${id}')">
                 <span>Sửa</span>
             </button>
+            <br/>
             <button class="p-2 rounded-lg hover:border hover:border-red-400 hover:text-red-500 hover:bg-white text-white bg-red-400 text-xl font-thin"
             onclick="delProduct('${id}')">
-                <i class="fa fa-plus"></i>
                 <span>Xoá</span>
             </button>
         </td>
@@ -42,21 +43,29 @@ const renderProductList = (arrProduct) => {
     document.querySelector("#tblDanhSachSP").innerHTML=content;
 };
 
-// Ua Hoang sao em k load san pham ra ha
-// dạ là sản phẩm của em chưa load đc ra á anh, nó bị lỗi cái buttoon á anh
-// k phải nha, do em xoá cái id của table rồi á
+
 
 // Hàm sử dụng chung của chức năng thêm
 const getInfo = () => {
     let id = getEle("#MaSP").value;
     let name = getEle("#TenSP").value;
-    let type = Array.from(getEle("#LoaiSP").selectedOptions).map(option => option.value);
+    
+    // Sửa lại phần lấy các loại bánh (với dropdown hoặc checkbox)
+    let type = [];
+    const checkboxes = document.querySelectorAll('#dropdownMenu input[type="checkbox"]:checked');
+    checkboxes.forEach(checkbox => {
+        type.push(checkbox.value); // Lấy giá trị của các checkbox đã chọn
+    });
+    
     let price = getEle("#GiaSP").value;
     let image = getEle("#HinhAnh").value;
-    let description = getEle("#MoTa").value;
-    let availability = getEle("#TinhTrang").vale;
+    let description = getEle("#Mota").value;
+    
+    // Sửa lại lỗi chính tả "vale" thành "value"
+    let availability = getEle("#TinhTrang").value;
 
-    console.log({id,
+    console.log({
+        id,
         name,
         type,
         price,
@@ -64,13 +73,8 @@ const getInfo = () => {
         description,
         availability,
     });
-    return new Product(id,
-        name,
-        type,
-        price,
-        image,
-        description,
-        availability)
+
+    return new Product(id, name, type, price, image, description, availability);
 };
 
 // resetForm
@@ -80,7 +84,7 @@ const resetForm = () => {
     getEle("#LoaiSP").value = "";
     getEle("#GiaSP").value = "";
     getEle("#HinhAnh").value = "";
-    getEle("#MoTa").value = "";
+    getEle("#Mota").value = "";
     getEle("#TinhTrang").value = "";
 };
 // GET
@@ -97,8 +101,8 @@ const fetchProductList = () =>{
 fetchProductList();
 
 // DELETE: xoá sản phẩm
-const delProduct = () =>{
-    productServices.delProduct()
+const delProduct = (id) =>{
+    productServices.delProduct(id)
     .then((response) => {
         console.log("response: ", response);
 
@@ -140,7 +144,7 @@ const addProduct = () => {
     );
 
     // Kiểm tra số lượng loại sản phẩm được chọn
-    const categoryCount = product.type.length; // `type` là mảng các loại sản phẩm
+    const categoryCount = product.type.length; 
     if (categoryCount < 2 || categoryCount > 3) {
         isValid = false;
         getEle("#errLoaiSP").textContent = "Vui lòng chọn từ 2 đến 3 loại sản phẩm!";
@@ -157,7 +161,7 @@ const addProduct = () => {
             //reset form
             resetForm();
 
-            $("#static-modal").modal("hide");
+            $("#myModal").modal("hide");
             getEle("#btnCapNhat").disabled = false;
         })
         .catch((error) => {
@@ -168,30 +172,44 @@ const addProduct = () => {
 window.addProduct = addProduct;
 
 // edit
-const editProduct = () =>{
-    productServices.getProductByID(id)
+const editProduct = (id) => {
+    productServices
+    .getProductByID(id)
     .then((response) => {
         console.log("response: ", response);
         const sp = response.data;
 
+        // Điền dữ liệu sản phẩm vào form
         getEle("#MaSP").value = sp.id;
         getEle("#TenSP").value = sp.name;
-        getEle("#LoaiSP").value = sp.type;
+
+        // Xử lý loại sản phẩm khi dùng checkbox
+        const checkboxes = document.querySelectorAll("#dropdownMenu input[type='checkbox']");
+        checkboxes.forEach((checkbox) => {
+        checkbox.checked = sp.type.includes(checkbox.value);
+        });
+
         getEle("#GiaSP").value = sp.price;
         getEle("#HinhAnh").value = sp.image;
-        getEle("#MoTa").value = sp.description;
+        getEle("#Mota").value = sp.description;
         getEle("#TinhTrang").value = sp.availability;
 
+        // Điều chỉnh trạng thái nút
         getEle("#btnThem").disabled = true;
         getEle("#btnCapNhat").disabled = false;
 
-        $("#static-modal").modal("show");
-    })
-    .catch((error) =>{
+        // Hiển thị modal
+        $("#myModal").modal("show");
+        })
+        .catch((error) => {
         console.error("error: ", error);
-    });
-};
-window.editProduct = editProduct;
+        });
+    };
+
+  // Gán hàm editProduct vào window để có thể gọi từ HTML
+    window.editProduct = editProduct;
+
+
 // update
 const updateProduct = () =>{
     const sp = getInfo();
@@ -201,7 +219,7 @@ const updateProduct = () =>{
     .then((response) =>{
         console.log("response: ", response);
 
-        $("#static-modal").modal("hide");
+        $("#myModal").modal("hide");
         fetchProductList();
         getEle("#btnThem").disabled = false;
     })
@@ -237,3 +255,15 @@ window.updateProduct = updateProduct;
 window.searchProductByName = searchProductByName;
 
 
+// Xử lý nút dropdownButton 
+const dropdownButton = document.getElementById('dropdownButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+dropdownButton.addEventListener('click', () => {
+dropdownMenu.classList.toggle('hidden');
+});
+window.addEventListener('click', (event) => {
+    if (!event.target.closest('#dropdownContainer')) {
+        dropdownMenu.classList.add('hidden');
+    }
+    });

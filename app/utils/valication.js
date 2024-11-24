@@ -1,4 +1,4 @@
-import { getEle } from "./commonUtils"
+import { getEle } from "./commonUtils.js"
 
 export const kiemTraRong = (value, idErr, message) =>{
     if(value.trim() === ""){
@@ -12,7 +12,7 @@ export const kiemTraRong = (value, idErr, message) =>{
 };
 
 export const kiemTraSo = (value, idErr, message) => {
-    const regexNumber = /^[0-9]+$/;
+    const regexNumber = /^\$?[0-9]+$/;
     const isNumber = regexNumber.test(value);
     if(isNumber){
         getEle(idErr).innerHTML = "";
