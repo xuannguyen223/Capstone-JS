@@ -127,26 +127,30 @@ function productDetail(id) {
                   />
                 </div>
 
-                <!-- Giá, loại, số lượng -->
+                <!-- Giá, loại, tình trạng -->
                 <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
-                  <h2 id="product-title">${name}</h2>
-                  <p id="product-type">${type}</p>
-                  <p id="product-price">Price: $${price}</p>
-                  <!-- Số lượng  -->
-                  <div class="product__quantity">
-                    <button id="decrease-quantity" type="button" class="btn3">-</button>
-                    <span id="product-quantity" class="text-xl mx-2">1</span>
-                    <button id="increase-quantity" type="button" class="btn3">+</button>
-                  </div>
+                  <h2 class="product__title">${name}</h2>
+                  <p>${type}</p>
+                  <p class="product__price">Price: $${price}</p>
+                  <p class="product__status">Status: <span id="status">${
+                    availability === "Còn" ? "In Stock" : "Out of Stock"
+                  }</span></p>
                 </div>
               </div>
 
               <!-- Phần mô tả chi tiết sản phẩm -->
-              <div id="popup-full-description">
+              <div class="popup__description">
                 <p>${description}</p>
               </div>
       `;
-      getEle("#popup-content").innerHTML = content;
+      getEle("#popup__content").innerHTML = content;
+      // chỉnh màu cho status của product (tùy vào còn hay hết hàng)
+      if (availability === "Còn") {
+        getEle(".product__status #status").classList.add("text-green-600");
+      } else {
+        getEle(".product__status #status").classList.add("text-red-600");
+      }
+      // show popup
       getEle("#popup").classList.remove("hidden");
     })
     .catch((error) => {
@@ -155,8 +159,10 @@ function productDetail(id) {
 }
 
 // đóng popup product detail
-getEle("#close-popup").onclick = () => {
+getEle("#close__popup").onclick = () => {
   getEle("#popup").classList.add("hidden");
 };
 
 window.productDetail = productDetail;
+
+// CART

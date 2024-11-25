@@ -1,4 +1,4 @@
-<!-- TRANG GIỎ HÀNG: HOÀNG -->
+<!-- TRANG GIỎ HÀNG: XUÂN, HOÀNG -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,43 +92,66 @@
     </header>
     <!-- main -->
     <main>
-      <div
-        class="container pt-40 pb-20 flex items-center justify-center flex-col"
-      >
-        <div class="text__image">
-          <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
-          <img src="../../assets/img/banner.jpg" alt="" />
+      <div class="cart_page">
+        <div class="cart__banner">
+          <h1 class="animate__animated animate__fadeInLeft animate__delay-0.5s">
+            CART
+          </h1>
         </div>
-        <!-- Table -->
-        <div class="mt-20">
-          <div class="overflow-x-auto md:overflow-visible">
-            <table
-              class="table-auto w-full border-collapse border border-gray-300"
-            >
+        <!-- PHẦN CART -->
+        <div id="productCart">
+          <div class="empty__product hidden">
+            <p class="empty__product__content">Your cart is currently empty.</p>
+            <div class="return__shop">
+              <a class="btn4" href="./shop.html">RETURN TO SHOP</a>
+            </div>
+          </div>
+          <!-- Phần nội dung giỏ khi chứa sản phẩm -->
+          <div class="filled__product">
+            <table>
               <thead>
-                <tr class="bg-gray-100 text-left text-sm font-semibold">
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Remove item</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Thumbnail image</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">Product</th>
-                  <th class="p-4 border border-gray-300">Price</th>
-                  <th class="p-4 border border-gray-300">Quantity</th>
-                  <th class="p-4 border border-gray-300">Subtotal</th>
+                <tr class="table__cart_title">
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody id="tableCartBody">
+                <!-- Row 1: coppy qua khi dùng để render -->
+                <tr>
+                  <td class="product_info">
+                    <button class="delete">×</button>
+                    <img
+                      src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
+                      alt="Product Image"
+                    />
+                    <span>ProductName</span>
+                  </td>
+                  <td class="product_price">$ ProductPrice</td>
+                  <td class="product_quantity">
+                    <div>
+                      <button class="decrease">-</button>
+                      <input type="text" value="2" id="product_quantity" />
+                      <button class="increase">+</button>
+                    </div>
+                  </td>
+                  <td class="subtotal">$ Giá tính bằng js</td>
+                </tr>
+              </tbody>
             </table>
+
+            <!-- Tổng tiền -->
+            <div class="total_price">
+              <div class="total_price_content">
+                Total:
+                <span id="product_total_price">$ Tổng tiền tính bằng js</span>
+              </div>
+            </div>
+            <div class="submit__order">
+              <button class="btn4">SUMIT ORDER</button>
+            </div>
           </div>
-        </div>
-        <div class="mt-52 text-center">
-          <button
-            class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white md:px-6 md:py-3 md:text-lg lg:px-8 lg:py-4 lg:text-xl"
-          >
-            <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
-          </button>
         </div>
       </div>
     </main>
