@@ -100,14 +100,14 @@
         </div>
         <!-- PHẦN CART -->
         <div id="productCart">
-          <div class="empty__product hidden">
+          <div id="emptyProduct">
             <p class="empty__product__content">Your cart is currently empty.</p>
             <div class="return__shop">
               <a class="btn4" href="./shop.html">RETURN TO SHOP</a>
             </div>
           </div>
-          <!-- Phần nội dung giỏ khi chứa sản phẩm -->
-          <div class="filled__product">
+
+          <div id="filledProduct" class="hidden">
             <table>
               <thead>
                 <tr class="table__cart_title">
@@ -117,35 +117,13 @@
                   <th>Subtotal</th>
                 </tr>
               </thead>
-              <tbody id="tableCartBody">
-                <!-- Row 1: coppy qua khi dùng để render -->
-                <tr>
-                  <td class="product_info">
-                    <button class="delete">×</button>
-                    <img
-                      src="https://dolcino.qodeinteractive.com/wp-content/uploads/2018/10/shop-img-16-800x800.jpg"
-                      alt="Product Image"
-                    />
-                    <span>ProductName</span>
-                  </td>
-                  <td class="product_price">$ ProductPrice</td>
-                  <td class="product_quantity">
-                    <div>
-                      <button class="decrease">-</button>
-                      <input type="text" value="2" id="product_quantity" />
-                      <button class="increase">+</button>
-                    </div>
-                  </td>
-                  <td class="subtotal">$ Giá tính bằng js</td>
-                </tr>
-              </tbody>
+              <tbody id="tableCartBody"></tbody>
             </table>
-
             <!-- Tổng tiền -->
             <div class="total_price">
               <div class="total_price_content">
                 Total:
-                <span id="product_total_price">$ Tổng tiền tính bằng js</span>
+                <span id="product_total_price"></span>
               </div>
             </div>
             <div class="submit__order">
@@ -216,7 +194,17 @@
         </p>
       </div>
     </footer>
+
+    <!-- MY AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <!-- MY JS  -->
     <script type="module" src="../../assets/js/dashboardUser.js"></script>
+    <script type="module" src="../../app/services/cartServices.js"></script>
   </body>
 </html>

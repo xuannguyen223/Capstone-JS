@@ -456,11 +456,11 @@ button#close__popup {
   @apply py-6 text-center text-2xl border-y border-gray-300/60 italic mb-10;
 }
 
-.filled__product {
+#filledProduct {
   @apply lg:px-20;
 }
 
-.filled__product table {
+#filledProduct table {
   @apply w-full border-collapse;
 }
 
@@ -490,7 +490,7 @@ button#close__popup {
 }
 
 .product_info span {
-  @apply text-gray-800 text-center;
+  @apply text-gray-800 text-center hidden sm:inline;
 }
 
 .product_price {
@@ -511,7 +511,7 @@ button#close__popup {
   items-center justify-center font-bold hover:bg-gray-300;
 }
 
-input#product_quantity {
+span#product_quantity {
   @apply w-12 text-center border rounded-md;
 }
 

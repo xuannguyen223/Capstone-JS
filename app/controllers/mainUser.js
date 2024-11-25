@@ -165,4 +165,4 @@ getEle("#close__popup").onclick = () => {
 
 window.productDetail = productDetail;
 
-// CART
+// CART - xem bên cartServices.js
