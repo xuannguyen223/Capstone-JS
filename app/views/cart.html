@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../../assets/img/Favikon-1.png" type="image/png" />
-    <title>Xuân Dolcino - Pastry & Cake Shop</title>
+    <title>Cart</title>
 
     <!-- GOOGLE FONT: Montserrat, Cormorant, Great Vibes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,44 +92,23 @@
     </header>
     <!-- main -->
     <main>
-      <div
-        class="container pt-40 pb-20 flex items-center justify-center flex-col"
-      >
+      <div class="container pt-40 pb-20 flex items-center justify-center flex-col">
         <div class="text__image">
           <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
-          <img src="../../assets/img/banner.jpg" alt="" />
+          <img src="../../assets/img/banner.jpg" alt="Cart Banner" />
         </div>
-        <!-- Table -->
-        <div class="mt-20">
-          <div class="overflow-x-auto md:overflow-visible">
-            <table
-              class="table-auto w-full border-collapse border border-gray-300"
-            >
-              <thead>
-                <tr class="bg-gray-100 text-left text-sm font-semibold">
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Remove item</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Thumbnail image</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">Product</th>
-                  <th class="p-4 border border-gray-300">Price</th>
-                  <th class="p-4 border border-gray-300">Quantity</th>
-                  <th class="p-4 border border-gray-300">Subtotal</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-        <div class="mt-52 text-center">
-          <button
-            class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white md:px-6 md:py-3 md:text-lg lg:px-8 lg:py-4 lg:text-xl"
-          >
-            <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
-          </button>
-        </div>
+      </div>
+      <div class="mt-40 text-center mb-10 flex flex-col items-center space-y-6">
+        <!-- Vùng hiển thị giỏ hàng -->
+        <div class="cart__items border border-gray-300 rounded-md px-48 py-4"></div>
+        <!-- Tổng tiền -->
+        <h3 class="cart__total font-semibold text-lg"></h3>
+        <!-- Nút quay lại Shop -->
+        <button
+          class="relative px-6 py-3 bg-[#c1a05f] text-white font-semibold uppercase tracking-wider rounded-md border-[2px] border-[#c1a05f] before:absolute before:inset-[-6px] before:border-[1.5px] before:border-[#c1a05f] before:rounded-md before:content-[''] before:-z-10 hover:bg-white hover:text-[#c1a05f] transition-all duration-300"
+        >
+          <a href="../views/shop.html" class="text__cart">Return to Shop</a>
+        </button>
       </div>
     </main>
     <!-- footer  -->
@@ -194,6 +173,7 @@
       </div>
     </footer>
     <!-- MY JS  -->
+    <script src="../services/cartProduct.js"></script>
     <script type="module" src="../../assets/js/dashboardUser.js"></script>
   </body>
 </html>
