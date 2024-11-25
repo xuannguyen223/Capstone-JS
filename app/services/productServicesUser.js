@@ -6,9 +6,17 @@ getEle;
 
 const userServices = {
   // lấy productList từ API
-  getProductUser: () => {
+  getProduct: () => {
     return axios({
       url: BASE_URL,
+      method: "GET",
+    });
+  },
+
+  // lấy product theo id
+  getProductByID: (id) => {
+    return axios({
+      url: `${BASE_URL}/${id}`,
       method: "GET",
     });
   },

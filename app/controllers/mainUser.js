@@ -21,11 +21,11 @@ const renderProductListUser = (arrProduct, quantityOfProducts) => {
                 alt=""
               />
               <div class="product__item__action">
-                <button class="btn2" onclick="productDetail()">
+                <button class="btn2" onclick="productDetail('${id}')">
                   SEE DETAIL
                 </button>
                 <div class="hr__main w-2/3"></div>
-                <button class="btn2" onclick="addToCart()">ADD TO CART</button>
+                <button class="btn2" onclick="addToCart('${id}')">ADD TO CART</button>
               </div>
             </div>
             <div class="product__item__content">
@@ -44,7 +44,7 @@ const renderProductListUser = (arrProduct, quantityOfProducts) => {
 // LẤY DATA TỪ API VỀ (bao gồm cả trình bày lên giao diện)
 const fetchProductListUser = () => {
   userServices
-    .getProductUser()
+    .getProduct()
     .then((response) => {
       console.log("response: ", response.data);
 
@@ -81,7 +81,7 @@ function showSelected() {
     selectedValues.join(", ");
 
   userServices
-    .getProductUser()
+    .getProduct()
     .then((response) => {
       const productList = [];
       response.data.map(function (product) {
@@ -105,3 +105,58 @@ function showSelected() {
 }
 
 window.showSelected = showSelected;
+
+// PRODUCT DETAILS
+function productDetail(id) {
+  // lấy thông tin sản phẩm về
+  userServices
+    .getProductByID(id)
+    .then((response) => {
+      console.log("response: ", response.data);
+      const { id, name, type, price, image, description, availability } =
+        response.data;
+      // Hiển thị thông tin lên popup product detail
+      let content = `
+              <div class="popup__content__main">
+                <!-- Hình ảnh -->
+                <div class="w-1/3">
+                  <img
+                    src="${image}"
+                    alt="Product Image"
+                    class="max-w-56 h-auto object-cover rounded-lg"
+                  />
+                </div>
+
+                <!-- Giá, loại, số lượng -->
+                <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
+                  <h2 id="product-title">${name}</h2>
+                  <p id="product-type">${type}</p>
+                  <p id="product-price">Price: $${price}</p>
+                  <!-- Số lượng  -->
+                  <div class="product__quantity">
+                    <button id="decrease-quantity" type="button" class="btn3">-</button>
+                    <span id="product-quantity" class="text-xl mx-2">1</span>
+                    <button id="increase-quantity" type="button" class="btn3">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phần mô tả chi tiết sản phẩm -->
+              <div id="popup-full-description">
+                <p>${description}</p>
+              </div>
+      `;
+      getEle("#popup-content").innerHTML = content;
+      getEle("#popup").classList.remove("hidden");
+    })
+    .catch((error) => {
+      console.error("error: ", error);
+    });
+}
+
+// đóng popup product detail
+getEle("#close-popup").onclick = () => {
+  getEle("#popup").classList.add("hidden");
+};
+
+window.productDetail = productDetail;
