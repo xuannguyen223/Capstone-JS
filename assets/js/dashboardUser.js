@@ -70,19 +70,7 @@ if (
 }
 
 // *************** PRODUCT ******************
-function productDetail() {
-  // Hiển thị popup và chứa thông tin sản phẩm ? => có thể lấy hàm này đem qua phần chính
-  document.getElementById("popup").classList.remove("hidden");
-}
-
-// Lắng nghe sự kiện click để đóng popup
-document.getElementById("close-popup").addEventListener("click", function () {
-  document.getElementById("popup").classList.add("hidden");
-});
-
-window.productDetail = productDetail;
-
-//  --- PRODUCT CATEGORIES ---
+//  PRODUCT CATEGORIES
 
 // Hàm hiển ẩn dropdown
 function toggleDropdown() {

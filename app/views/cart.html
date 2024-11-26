@@ -1,4 +1,4 @@
-<!-- TRANG GIỎ HÀNG: HOÀNG -->
+<!-- TRANG GIỎ HÀNG: XUÂN, HOÀNG -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +53,7 @@
               <a href="./shop.html" target="_blank">Shop</a>
             </li>
             <li>
-              <a href="#contact" target="_blank">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
             <li>
               <a href="#">Services</a>
@@ -63,13 +63,17 @@
         <div class="header__right">
           <a href="./cart.html" target="_blank" class="cart">
             <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product">0</div>
           </a>
-          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
-          <button class="login">
-            <i class="fa fa-user"></i><span>Login</span>
-          </button>
+          <a href="./admin.html" target="_blank" class="admin">
+            <i class="fa fa-user"></i><span>Admin</span>
+          </a>
         </div>
         <div class="header__miniNav">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product_1">0</div>
+          </a>
           <button id="miniNav">
             <img
               src="../../assets/img/svgexport-4.svg"
@@ -83,52 +87,56 @@
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a href="./shop.html" target="_blank">Shop</a></li>
-          <li><a href="#contact" target="_blank">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="./cart.html" target="_blank">Cart</a></li>
-          <li><button>LOGIN</button></li>
+          <li><a href="./admin.html" target="_blank">Admin</a></li>
         </ul>
       </div>
     </header>
     <!-- main -->
     <main>
-      <div
-        class="container pt-40 pb-20 flex items-center justify-center flex-col"
-      >
-        <div class="text__image">
-          <h2 class="text__content lg:text-7xl md:text-lg">CART</h2>
-          <img src="../../assets/img/banner.jpg" alt="" />
+      <div class="cart_page">
+        <div class="cart__banner">
+          <h1 class="animate__animated animate__fadeInLeft animate__delay-0.5s">
+            CART
+          </h1>
         </div>
-        <!-- Table -->
-        <div class="mt-20">
-          <div class="overflow-x-auto md:overflow-visible">
-            <table
-              class="table-auto w-full border-collapse border border-gray-300"
-            >
+        <!-- PHẦN CART -->
+        <div id="productCart">
+          <div id="emptyProduct">
+            <p class="empty__product__content">Your cart is currently empty.</p>
+            <div class="return__shop">
+              <a class="btn4" href="./shop.html">RETURN TO SHOP</a>
+            </div>
+          </div>
+
+          <div id="filledProduct" class="hidden">
+            <table>
               <thead>
-                <tr class="bg-gray-100 text-left text-sm font-semibold">
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Remove item</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">
-                    <span class="sr-only">Thumbnail image</span>
-                  </th>
-                  <th class="p-4 border border-gray-300">Product</th>
-                  <th class="p-4 border border-gray-300">Price</th>
-                  <th class="p-4 border border-gray-300">Quantity</th>
-                  <th class="p-4 border border-gray-300">Subtotal</th>
+                <tr class="table__cart_title">
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody id="tableCartBody"></tbody>
             </table>
+            <!-- Tổng tiền -->
+            <div class="total_price">
+              <div class="total_price_content">
+                Total:
+                <span id="product_total_price"></span>
+              </div>
+            </div>
+            <!-- submit-order -->
+            <div class="submit__order">
+              <button id="submitOrder" onclick="submitOrder()" class="btn4">
+                SUBMIT ORDER
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="mt-52 text-center">
-          <button
-            class="border border-primary px-4 py-2 bg-primary rounded-lg text-white hover:text-primary hover:bg-white md:px-6 md:py-3 md:text-lg lg:px-8 lg:py-4 lg:text-xl"
-          >
-            <a href="../views/shop.html" class="text__cart">RETURN TO SHOP</a>
-          </button>
         </div>
       </div>
     </main>
@@ -193,7 +201,35 @@
         </p>
       </div>
     </footer>
+
+    <!-- POPUP xác nhận đặt hàng -->
+    <div
+      id="popup"
+      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="submit__modal">
+        <h2 class="popup__submit_title">CONFIRM YOUR ORDER</h2>
+        <div class="submit_oder_info">
+          <p>Quantity: <span id="submit_quantity"></span></p>
+          <p>Price: <span id="submit_price"></span></p>
+        </div>
+        <button class="confirm-order" onclick="confirmOrder()">CONFIRM</button>
+        <button class="close__popup_submit" onclick="cancelOrder()">
+          CANCEL
+        </button>
+      </div>
+    </div>
+
+    <!-- MY AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <!-- MY JS  -->
     <script type="module" src="../../assets/js/dashboardUser.js"></script>
+    <script type="module" src="../../app/services/cartServices.js"></script>
   </body>
 </html>

@@ -32,6 +32,10 @@ p {
   @apply fontCormorant text-2xl italic;
 }
 
+.fontMontserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
 .fontCormorant {
   font-family: "Cormorant", serif;
 }
@@ -67,6 +71,16 @@ p {
 
 .btn3 {
   @apply text-main-color border border-main-color px-4 py-2 rounded text-2xl font-semibold;
+}
+
+.btn4 {
+  @apply text-white border border-main-color bg-main-color px-12 py-2 text-sm
+ tracking-wide transition-all hover:text-main-color hover:bg-white m-[2px] inline-block;
+}
+
+.btn5 {
+  @apply text-main-color border border-main-color bg-white px-12 py-2 text-sm
+ tracking-wide transition-all hover:text-white hover:bg-main-color m-[2px] inline-block;
 }
 
 .active {
@@ -131,34 +145,40 @@ header .subMenu li {
   @apply hidden md:flex items-center;
 }
 
-.header__right .cart {
-  @apply pr-2 border-r-[1px] border-main-color;
+.header__right .cart,
+.header__miniNav .cart {
+  @apply pr-2 border-r-[1px] border-main-color relative inline-block;
 }
 
+.cart #quantity_product,
+.cart #quantity_product_1 {
+  @apply fontCormorant text-xl italic absolute right-[10%] 
+  -bottom-4 text-red-500;
+}
 .header__miniNav {
-  @apply md:hidden block duration-500;
+  @apply md:hidden duration-500 flex gap-1;
 }
 
 .header__miniNav button:hover img {
   @apply transform scale-90;
 }
 
-/* Login */
-button.login {
+/* admin */
+a.admin {
   @apply ml-2 w-7 h-7 text-center rounded-full p-1 duration-300 text-black/60
   border border-black/60 hover:border-main-color hover:text-main-color
   hover:font-semibold hover:px-3 hover:py-1 hover:w-auto hover:h-auto;
 }
 
-button.login i {
+a.admin i {
   @apply relative bottom-[2px] hover:bottom-0;
 }
 
-button.login span {
+a.admin span {
   @apply hidden;
 }
 
-button.login:hover span {
+a.admin:hover span {
   @apply inline-block ml-1;
 }
 
@@ -217,7 +237,8 @@ button.login:hover span {
 }
 /* productList áp dụng cho cả trang Shop.html */
 .product__list {
-  @apply grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 transform -mt-12;
+  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 
+  gap-6 transform -mt-12 pb-10;
 }
 
 .product__item {
@@ -338,8 +359,6 @@ footer p {
   @apply text-lg hover:text-main-color;
 }
 
-/* CÒN THIẾU BACK TO TOP */
-
 /* ------------------- POPUP SHOW DETAIL PRODUCT ------------------- */
 
 .product__modal {
@@ -347,15 +366,15 @@ footer p {
   xl:max-w-4xl xl:scale-100 lg:max-w-3xl lg:scale-[0.8] max-w-2xl sm:scale-50 scale-[0.3];
 }
 
-#popupTitle {
+.popup__title {
   @apply text-xl font-semibold;
 }
 
-button#close-popup {
+button#close__popup {
   @apply mt-4 p-2 bg-red-500 text-white rounded hover:bg-red-600;
 }
 
-#popup-content {
+#popup__content {
   @apply mt-4;
 }
 
@@ -363,7 +382,7 @@ button#close-popup {
   @apply flex gap-4 items-center;
 }
 
-#product-title {
+.product__title {
   @apply text-2xl font-semibold mb-2 text-gray-700;
 }
 
@@ -371,25 +390,52 @@ button#close-popup {
   @apply text-gray-600 mb-2;
 }
 
-#popup-full-description {
+.popup__description {
   @apply mt-6 text-gray-700;
 }
 
-#product-price {
+.product__price {
   @apply text-xl font-bold text-green-600;
 }
 
-.product__quantity {
-  @apply flex items-center mt-4 gap-4;
+.product__status {
+  @apply italic text-lg font-semibold;
+}
+/* ------------------- POPUP SUBMIT ORDER ------------------- */
+.submit__modal {
+  @apply bg-white p-6 rounded-lg shadow-lg w-full transform text-center
+ xl:scale-100 lg:max-w-xl lg:scale-[0.8] max-w-2xl sm:scale-50 scale-[0.3];
 }
 
+.popup__submit_title {
+  @apply text-xl font-semibold;
+}
+
+.confirm-order {
+  @apply text-white border border-main-color bg-main-color px-12 py-2 text-sm
+  tracking-wide transition-all hover:scale-110  m-[2px] inline-block;
+}
+
+.submit_oder_info {
+  @apply py-8;
+}
+
+.submit_oder_info span {
+  @apply font-semibold text-green-500;
+}
+
+.close__popup_submit {
+  @apply btn5;
+}
 /* ---------------------------------- SHOP.HTML ---------------------------------- */
 
-.shop {
-  @apply container pt-32 pb-10;
+.shop,
+.cart_page {
+  @apply container pt-32;
 }
 
-.shop__banner {
+.shop__banner,
+.cart__banner {
   @apply w-full text-left px-16 pt-32 pb-20 mx-auto;
   background: url("../../assets/img/shop-banner.jpg");
   background-position: center center;
@@ -398,7 +444,8 @@ button#close-popup {
   animation: zoomIn 20s ease-in-out infinite;
 }
 
-.shop__banner h1 {
+.shop__banner h1,
+.cart__banner h1 {
   @apply mt-3 text-6xl md:text-8xl lg:tracking-wider px-10;
 }
 
@@ -431,29 +478,92 @@ button#close-popup {
   relative text-left left-0 -mb-20;
 }
 
-/* ---------------------------------- END SHOP.HTML ---------------------------------- */
-/* BODY CART */
-.text__image {
-  position: relative;
-  display: inline-block;
+/* ---------------------------------- CART.HTML ---------------------------------- */
+
+.return__shop,
+.submit__order {
+  @apply text-center w-fit mx-auto border border-main-color h-full mt-3;
 }
 
-.text__image img {
-  width: 100%;
-  height: auto;
+#productCart {
+  @apply my-10 container py-20;
 }
 
-.text__content {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  color: black;
-  font-weight: 900;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 5px;
+.empty__product__content {
+  @apply py-6 text-center text-2xl border-y border-gray-300/60 italic mb-10;
 }
-.text__cart a {
-  font-size: 10px;
+
+#filledProduct {
+  @apply lg:px-20;
+}
+
+#filledProduct table {
+  @apply w-full border-collapse;
+}
+
+.table__cart_title {
+  @apply text-gray-700 uppercase text-sm border-b;
+}
+
+.table__cart_title th {
+  @apply py-3 px-4;
+}
+
+#tableCartBody tr {
+  @apply border-b;
+}
+
+#tableCartBody .product_info {
+  @apply py-4 md:pl-24 lg:pl-32 pl-16 pr-6 flex items-center justify-start gap-10 relative;
+}
+
+.product_info button.delete {
+  @apply text-black/60 hover:text-red-500 text-4xl fontCormorant font-thin absolute 
+  left-[5%] top-1/2 transform -translate-y-1/2;
+}
+
+.product_info img {
+  @apply w-20 h-20 object-cover rounded-md;
+}
+
+.product_info span {
+  @apply text-gray-800 text-center hidden sm:inline;
+}
+
+.product_price {
+  @apply py-4 px-4 text-gray-800 text-center;
+}
+
+.product_quantity {
+  @apply py-4 px-4;
+}
+
+.product_quantity div {
+  @apply flex items-center gap-2 justify-center;
+}
+
+.product_quantity button.decrease,
+.product_quantity button.increase {
+  @apply w-8 h-8 bg-gray-200 text-gray-600 rounded-md flex 
+  items-center justify-center font-bold hover:bg-gray-300;
+}
+
+span#product_quantity {
+  @apply w-12 text-center border rounded-md;
+}
+
+.subtotal {
+  @apply py-4 px-4 text-gray-800 text-center;
+}
+
+.total_price {
+  @apply mt-6 flex justify-end mr-5;
+}
+
+.total_price_content {
+  @apply text-lg font-semibold text-gray-700 fontMontserrat;
+}
+
+#product_total_price {
+  @apply text-green-500;
 }

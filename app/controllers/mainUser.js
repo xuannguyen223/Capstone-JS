@@ -21,11 +21,11 @@ const renderProductListUser = (arrProduct, quantityOfProducts) => {
                 alt=""
               />
               <div class="product__item__action">
-                <button class="btn2" onclick="productDetail()">
+                <button class="btn2" onclick="productDetail('${id}')">
                   SEE DETAIL
                 </button>
                 <div class="hr__main w-2/3"></div>
-                <button class="btn2" onclick="addToCart()">ADD TO CART</button>
+                <button class="btn2" onclick="addToCart('${id}')">ADD TO CART</button>
               </div>
             </div>
             <div class="product__item__content">
@@ -44,7 +44,7 @@ const renderProductListUser = (arrProduct, quantityOfProducts) => {
 // LẤY DATA TỪ API VỀ (bao gồm cả trình bày lên giao diện)
 const fetchProductListUser = () => {
   userServices
-    .getProductUser()
+    .getProduct()
     .then((response) => {
       console.log("response: ", response.data);
 
@@ -81,7 +81,7 @@ function showSelected() {
     selectedValues.join(", ");
 
   userServices
-    .getProductUser()
+    .getProduct()
     .then((response) => {
       const productList = [];
       response.data.map(function (product) {
@@ -105,3 +105,64 @@ function showSelected() {
 }
 
 window.showSelected = showSelected;
+
+// PRODUCT DETAILS
+function productDetail(id) {
+  // lấy thông tin sản phẩm về
+  userServices
+    .getProductByID(id)
+    .then((response) => {
+      console.log("response: ", response.data);
+      const { id, name, type, price, image, description, availability } =
+        response.data;
+      // Hiển thị thông tin lên popup product detail
+      let content = `
+              <div class="popup__content__main">
+                <!-- Hình ảnh -->
+                <div class="w-1/3">
+                  <img
+                    src="${image}"
+                    alt="Product Image"
+                    class="max-w-56 h-auto object-cover rounded-lg"
+                  />
+                </div>
+
+                <!-- Giá, loại, tình trạng -->
+                <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
+                  <h2 class="product__title">${name}</h2>
+                  <p>${type}</p>
+                  <p class="product__price">Price: $${price}</p>
+                  <p class="product__status">Status: <span id="status">${
+                    availability === "Còn" ? "In Stock" : "Out of Stock"
+                  }</span></p>
+                </div>
+              </div>
+
+              <!-- Phần mô tả chi tiết sản phẩm -->
+              <div class="popup__description">
+                <p>${description}</p>
+              </div>
+      `;
+      getEle("#popup__content").innerHTML = content;
+      // chỉnh màu cho status của product (tùy vào còn hay hết hàng)
+      if (availability === "Còn") {
+        getEle(".product__status #status").classList.add("text-green-600");
+      } else {
+        getEle(".product__status #status").classList.add("text-red-600");
+      }
+      // show popup
+      getEle("#popup").classList.remove("hidden");
+    })
+    .catch((error) => {
+      console.error("error: ", error);
+    });
+}
+
+// đóng popup product detail
+getEle("#close__popup").onclick = () => {
+  getEle("#popup").classList.add("hidden");
+};
+
+window.productDetail = productDetail;
+
+// CART - xem bên cartServices.js

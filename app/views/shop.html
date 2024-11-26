@@ -53,7 +53,7 @@
               <a href="./shop.html" target="_blank">Shop</a>
             </li>
             <li>
-              <a href="#contact" target="_blank">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
             <li>
               <a href="#">Services</a>
@@ -63,13 +63,17 @@
         <div class="header__right">
           <a href="./cart.html" target="_blank" class="cart">
             <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product">0</div>
           </a>
-          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
-          <button class="login">
-            <i class="fa fa-user"></i><span>Login</span>
-          </button>
+          <a href="./admin.html" target="_blank" class="admin">
+            <i class="fa fa-user"></i><span>Admin</span>
+          </a>
         </div>
         <div class="header__miniNav">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product_1">0</div>
+          </a>
           <button id="miniNav">
             <img
               src="../../assets/img/svgexport-4.svg"
@@ -83,10 +87,10 @@
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a href="./shop.html" target="_blank">Shop</a></li>
-          <li><a href="#contact" target="_blank">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="./cart.html" target="_blank">Cart</a></li>
-          <li><button>LOGIN</button></li>
+          <li><a href="./admin.html" target="_blank">Admin</a></li>
         </ul>
       </div>
     </header>
@@ -206,46 +210,9 @@
       class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
     >
       <div class="product__modal">
-        <h2 id="popup-title">Product Information</h2>
-        <form id="popup-content">
-          <div class="popup__content__main">
-            <!-- Hình ảnh -->
-            <div class="w-1/3">
-              <img
-                src="https://via.placeholder.com/300"
-                alt="Product Image"
-                class="max-w-56 h-auto object-cover rounded-lg"
-              />
-            </div>
-
-            <!-- Giá, mô tả ngắn, số lượng -->
-            <div class="w-2/3 ml-20 md:ml-8 lg:ml-0">
-              <h2 id="product-title">Product Name</h2>
-              <p id="product-type">Type of products</p>
-              <p id="product-price">Price: $100</p>
-              <!-- Số lượng  -->
-              <div class="product__quantity">
-                <button id="decrease-quantity" class="btn3">-</button>
-                <span id="product-quantity" class="text-xl mx-2">1</span>
-                <button id="increase-quantity" class="btn3">+</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phần mô tả chi tiết sản phẩm -->
-          <div id="popup-full-description">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Repudiandae temporibus dolores, officia asperiores, tenetur, ab
-              eum esse voluptates repellat tempora doloremque. Quibusdam
-              pariatur quam aut asperiores consequatur praesentium nobis quasi
-              vero nulla nemo nihil consectetur explicabo sapiente ex doloremque
-              minima ipsum voluptate dolores hic, incidunt, inventore odio, a
-              ipsam nisi.
-            </p>
-          </div>
-        </form>
-        <button id="close-popup">Close</button>
+        <h2 class="popup__title">Product Information</h2>
+        <form id="popup__content"></form>
+        <button id="close__popup">Close</button>
       </div>
     </div>
 
@@ -260,5 +227,6 @@
     <!-- MY JS  -->
     <script type="module" src="../../assets/js/dashboardUser.js"></script>
     <script type="module" src="../controllers/mainUser.js"></script>
+    <script type="module" src="../../app/services/cartServices.js"></script>
   </body>
 </html>

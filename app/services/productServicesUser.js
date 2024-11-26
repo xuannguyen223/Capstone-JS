@@ -1,14 +1,20 @@
 // PHẦN PRODUCT SERVICES CỦA USER: XUÂN
 
 import BASE_URL from "../utils/apiUrls.js";
-import { getEle } from "../utils/commonUtils.js";
-getEle;
 
 const userServices = {
   // lấy productList từ API
-  getProductUser: () => {
+  getProduct: () => {
     return axios({
       url: BASE_URL,
+      method: "GET",
+    });
+  },
+
+  // lấy product theo id
+  getProductByID: (id) => {
+    return axios({
+      url: `${BASE_URL}/${id}`,
       method: "GET",
     });
   },
