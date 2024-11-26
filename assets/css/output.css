@@ -2090,6 +2090,35 @@ p {
   color: rgb(193 157 86 / var(--tw-text-opacity, 1));
 }
 
+.btn5 {
+  margin: 2px;
+  display: inline-block;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(193 157 86 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(193 157 86 / var(--tw-text-opacity, 1));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn5:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(193 157 86 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
 .active {
   position: relative;
   --tw-text-opacity: 1;
@@ -2319,15 +2348,32 @@ header .subMenu li:hover {
   }
 }
 
-.header__right .cart {
+.header__right .cart,
+.header__miniNav .cart {
+  position: relative;
+  display: inline-block;
   border-right-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(193 157 86 / var(--tw-border-opacity, 1));
   padding-right: 0.5rem;
 }
 
+.cart #quantity_product,
+.cart #quantity_product_1 {
+  position: absolute;
+  right: 10%;
+  bottom: -1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgb(240 82 82 / var(--tw-text-opacity, 1));
+  font-family: "Cormorant", serif;
+}
+
 .header__miniNav {
-  display: block;
+  display: flex;
+  gap: 0.25rem;
   transition-duration: 500ms;
 }
 
@@ -2343,9 +2389,9 @@ header .subMenu li:hover {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-/* Login */
+/* admin */
 
-button.login {
+a.admin {
   margin-left: 0.5rem;
   height: 1.75rem;
   width: 1.75rem;
@@ -2358,7 +2404,7 @@ button.login {
   transition-duration: 300ms;
 }
 
-button.login:hover {
+a.admin:hover {
   height: auto;
   width: auto;
   --tw-border-opacity: 1;
@@ -2372,20 +2418,20 @@ button.login:hover {
   color: rgb(193 157 86 / var(--tw-text-opacity, 1));
 }
 
-button.login i {
+a.admin i {
   position: relative;
   bottom: 2px;
 }
 
-button.login i:hover {
+a.admin i:hover {
   bottom: 0px;
 }
 
-button.login span {
+a.admin span {
   display: none;
 }
 
-button.login:hover span {
+a.admin:hover span {
   margin-left: 0.25rem;
   display: inline-block;
 }
@@ -3043,6 +3089,123 @@ button#close__popup:hover {
   line-height: 1.75rem;
   font-weight: 600;
   font-style: italic;
+}
+
+/* ------------------- POPUP SUBMIT ORDER ------------------- */
+
+.submit__modal {
+  width: 100%;
+  max-width: 42rem;
+  --tw-scale-x: 0.3;
+  --tw-scale-y: 0.3;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  padding: 1.5rem;
+  text-align: center;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 640px) {
+  .submit__modal {
+    --tw-scale-x: .5;
+    --tw-scale-y: .5;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+@media (min-width: 1024px) {
+  .submit__modal {
+    max-width: 36rem;
+    --tw-scale-x: 0.8;
+    --tw-scale-y: 0.8;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+@media (min-width: 1280px) {
+  .submit__modal {
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+.popup__submit_title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.confirm-order {
+  margin: 2px;
+  display: inline-block;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(193 157 86 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(193 157 86 / var(--tw-bg-opacity, 1));
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.confirm-order:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.submit_oder_info {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.submit_oder_info span {
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(14 159 110 / var(--tw-text-opacity, 1));
+}
+
+.close__popup_submit {
+  margin: 2px;
+  display: inline-block;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(193 157 86 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(193 157 86 / var(--tw-text-opacity, 1));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.close__popup_submit:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(193 157 86 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 /* ---------------------------------- SHOP.HTML ---------------------------------- */

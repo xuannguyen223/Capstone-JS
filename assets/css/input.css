@@ -78,6 +78,11 @@ p {
  tracking-wide transition-all hover:text-main-color hover:bg-white m-[2px] inline-block;
 }
 
+.btn5 {
+  @apply text-main-color border border-main-color bg-white px-12 py-2 text-sm
+ tracking-wide transition-all hover:text-white hover:bg-main-color m-[2px] inline-block;
+}
+
 .active {
   @apply text-main-color relative;
 }
@@ -140,34 +145,40 @@ header .subMenu li {
   @apply hidden md:flex items-center;
 }
 
-.header__right .cart {
-  @apply pr-2 border-r-[1px] border-main-color;
+.header__right .cart,
+.header__miniNav .cart {
+  @apply pr-2 border-r-[1px] border-main-color relative inline-block;
 }
 
+.cart #quantity_product,
+.cart #quantity_product_1 {
+  @apply fontCormorant text-xl italic absolute right-[10%] 
+  -bottom-4 text-red-500;
+}
 .header__miniNav {
-  @apply md:hidden block duration-500;
+  @apply md:hidden duration-500 flex gap-1;
 }
 
 .header__miniNav button:hover img {
   @apply transform scale-90;
 }
 
-/* Login */
-button.login {
+/* admin */
+a.admin {
   @apply ml-2 w-7 h-7 text-center rounded-full p-1 duration-300 text-black/60
   border border-black/60 hover:border-main-color hover:text-main-color
   hover:font-semibold hover:px-3 hover:py-1 hover:w-auto hover:h-auto;
 }
 
-button.login i {
+a.admin i {
   @apply relative bottom-[2px] hover:bottom-0;
 }
 
-button.login span {
+a.admin span {
   @apply hidden;
 }
 
-button.login:hover span {
+a.admin:hover span {
   @apply inline-block ml-1;
 }
 
@@ -389,6 +400,32 @@ button#close__popup {
 
 .product__status {
   @apply italic text-lg font-semibold;
+}
+/* ------------------- POPUP SUBMIT ORDER ------------------- */
+.submit__modal {
+  @apply bg-white p-6 rounded-lg shadow-lg w-full transform text-center
+ xl:scale-100 lg:max-w-xl lg:scale-[0.8] max-w-2xl sm:scale-50 scale-[0.3];
+}
+
+.popup__submit_title {
+  @apply text-xl font-semibold;
+}
+
+.confirm-order {
+  @apply text-white border border-main-color bg-main-color px-12 py-2 text-sm
+  tracking-wide transition-all hover:scale-110  m-[2px] inline-block;
+}
+
+.submit_oder_info {
+  @apply py-8;
+}
+
+.submit_oder_info span {
+  @apply font-semibold text-green-500;
+}
+
+.close__popup_submit {
+  @apply btn5;
 }
 /* ---------------------------------- SHOP.HTML ---------------------------------- */
 

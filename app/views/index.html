@@ -48,8 +48,10 @@
         </div>
         <nav>
           <ul>
-            <li class="active"><a href="./index.html">Home</a></li>
-            <li><a href="./shop.html" target="_blank">Shop</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li class="active">
+              <a href="./shop.html" target="_blank">Shop</a>
+            </li>
             <li>
               <a href="#contact">Contact</a>
             </li>
@@ -61,13 +63,17 @@
         <div class="header__right">
           <a href="./cart.html" target="_blank" class="cart">
             <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product">0</div>
           </a>
-          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
-          <button class="login">
-            <i class="fa fa-user"></i><span>Login</span>
-          </button>
+          <a href="./admin.html" target="_blank" class="admin">
+            <i class="fa fa-user"></i><span>Admin</span>
+          </a>
         </div>
         <div class="header__miniNav">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product_1">0</div>
+          </a>
           <button id="miniNav">
             <img
               src="../../assets/img/svgexport-4.svg"
@@ -84,7 +90,7 @@
           <li><a href="#contact">Contact</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="./cart.html" target="_blank">Cart</a></li>
-          <li><button>LOGIN</button></li>
+          <li><a href="./admin.html" target="_blank">Admin</a></li>
         </ul>
       </div>
     </header>

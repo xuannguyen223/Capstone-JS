@@ -63,13 +63,17 @@
         <div class="header__right">
           <a href="./cart.html" target="_blank" class="cart">
             <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product">0</div>
           </a>
-          <!-- Xử lý Js khi click vào login sau cùng (sau khi đã làm xong các phần khác) -->
-          <button class="login">
-            <i class="fa fa-user"></i><span>Login</span>
-          </button>
+          <a href="./admin.html" target="_blank" class="admin">
+            <i class="fa fa-user"></i><span>Admin</span>
+          </a>
         </div>
         <div class="header__miniNav">
+          <a href="./cart.html" target="_blank" class="cart">
+            <img src="../../assets/img/svgexport-3.svg" alt="cart" />
+            <div id="quantity_product_1">0</div>
+          </a>
           <button id="miniNav">
             <img
               src="../../assets/img/svgexport-4.svg"
@@ -86,7 +90,7 @@
           <li><a href="#contact">Contact</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="./cart.html" target="_blank">Cart</a></li>
-          <li><button>LOGIN</button></li>
+          <li><a href="./admin.html" target="_blank">Admin</a></li>
         </ul>
       </div>
     </header>
@@ -126,8 +130,11 @@
                 <span id="product_total_price"></span>
               </div>
             </div>
+            <!-- submit-order -->
             <div class="submit__order">
-              <button class="btn4">SUMIT ORDER</button>
+              <button id="submitOrder" onclick="submitOrder()" class="btn4">
+                SUBMIT ORDER
+              </button>
             </div>
           </div>
         </div>
@@ -194,6 +201,24 @@
         </p>
       </div>
     </footer>
+
+    <!-- POPUP xác nhận đặt hàng -->
+    <div
+      id="popup"
+      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="submit__modal">
+        <h2 class="popup__submit_title">CONFIRM YOUR ORDER</h2>
+        <div class="submit_oder_info">
+          <p>Quantity: <span id="submit_quantity"></span></p>
+          <p>Price: <span id="submit_price"></span></p>
+        </div>
+        <button class="confirm-order" onclick="confirmOrder()">CONFIRM</button>
+        <button class="close__popup_submit" onclick="cancelOrder()">
+          CANCEL
+        </button>
+      </div>
+    </div>
 
     <!-- MY AXIOS  -->
     <script

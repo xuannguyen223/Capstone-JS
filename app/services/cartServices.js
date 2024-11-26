@@ -1,8 +1,10 @@
 import { getEle } from "../utils/commonUtils.js";
 import userServices from "./productServicesUser.js";
 
+// Render sản phẩm lên table
 function renderCart() {
   if (window.location.pathname !== "/app/views/cart.html") {
+    updateTotalCart(getCartFromLocalStorage());
     return;
   }
   const cartMap = getCartFromLocalStorage();
@@ -15,63 +17,67 @@ function renderCart() {
     getEle("#emptyProduct").classList.remove("hidden");
   }
 
-  let totalPrice = 0;
   let tableContent = ``;
-  let promiseChain = Promise.resolve(); // Bắt đầu chuỗi Promise rỗng
+  let totalPrice = 0;
 
-  cartMap.forEach((quantity, productId) => {
-    promiseChain = promiseChain.then(() => {
-      return userServices.getProductByID(productId).then((response) => {
+  async function loadCartItems() {
+    for (let [productId, quantity] of cartMap.entries()) {
+      try {
+        const response = await userServices.getProductByID(productId);
         const { id, name, price, image } = response.data;
         const subtotal = Number((price * quantity).toFixed(2));
         totalPrice += subtotal;
-        const content = `
-              <tr>
-                <td class="product_info">
-                  <button class="delete" onclick="removeProduct('${id}')">
-                    ×
-                  </button>
-                  <img
-                    src="${image}"
-                    alt="Product Image ${name}"
-                  />
-                  <span>${name}</span>
-                </td>
-                <td class="product_price">$${price}</td>
-                <td class="product_quantity">
-                  <div>
-                    <button
-                      onclick="updateQuantity('${id}',false)"
-                      class="decrease"
-                    >
-                      -
-                    </button>
-                    <span id="product_quantity">${quantity}</span>
-                    <button
-                      onclick="updateQuantity('${id}',true)"
-                      class="increase"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-                <td class="subtotal">$${subtotal}</td>
-              </tr>
-      `;
-        tableContent += content;
-      });
-    });
-  });
 
-  // Khi chuỗi Promise hoàn tất
-  promiseChain
-    .then(() => {
-      getEle("#tableCartBody").innerHTML = tableContent;
-      getEle("#product_total_price").innerHTML = `$${totalPrice}`;
-    })
-    .catch((error) => {
-      console.error("Error: ", error);
-    });
+        const content = `
+        <tr>
+          <td class="product_info">
+            <button class="delete" onclick="removeProduct('${id}')">
+              ×
+            </button>
+            <img src="${image}" alt="Product Image ${name}" />
+            <span>${name}</span>
+          </td>
+          <td class="product_price">$${price}</td>
+          <td class="product_quantity">
+            <div>
+              <button onclick="updateQuantity('${id}', false)" class="decrease">-</button>
+              <span id="product_quantity">${quantity}</span>
+              <button onclick="updateQuantity('${id}', true)" class="increase">+</button>
+            </div>
+          </td>
+          <td class="subtotal">$${subtotal}</td>
+        </tr>
+      `;
+
+        tableContent += content;
+      } catch (error) {
+        console.error("Error loading product:", error);
+        cartMap.delete(productId);
+        setCartToLocalStorage(cartMap);
+      }
+    }
+
+    // Sau khi tất cả sản phẩm được xử lý, render nội dung lên table
+    getEle("#tableCartBody").innerHTML = tableContent;
+
+    getEle("#product_total_price").innerHTML = `$${totalPrice}`;
+    // cập nhật icon giỏ hàng
+    updateTotalCart(cartMap);
+  }
+
+  loadCartItems();
+}
+
+// hàm cập nhật icon giỏ hàng & thông tin submit order
+function updateTotalCart(cartMap) {
+  const totalQuantity = [...cartMap.values()].reduce(
+    (sum, value) => sum + value,
+    0
+  );
+  getEle("#quantity_product").innerHTML = totalQuantity;
+  getEle("#quantity_product_1").innerHTML = totalQuantity;
+  getEle("#submit_quantity").innerHTML = totalQuantity;
+  getEle("#submit_price").innerHTML = getEle("#product_total_price").innerHTML;
 }
 
 // get localStorage
@@ -89,7 +95,7 @@ const setCartToLocalStorage = (cart) => {
   localStorage.setItem("cart", data);
 };
 
-// Thêm sản phẩm vào giỏ hàng
+// Thêm sản phẩm vào giỏ hàng - XUÂN
 function addToCart(productId) {
   console.log("productId: ", productId);
   let currentCart = getCartFromLocalStorage();
@@ -98,6 +104,8 @@ function addToCart(productId) {
   } else {
     currentCart.set(productId, 1);
     setCartToLocalStorage(currentCart);
+    // cập nhật icon giỏ hàng
+    updateTotalCart(currentCart);
   }
   console.log("currentCart: ", currentCart);
 }
@@ -134,3 +142,28 @@ window.removeProduct = removeProduct;
 
 // Gọi renderCart khi trang được load
 window.addEventListener("load", renderCart);
+
+// XÁC NHẬN ĐẶT HÀNG
+const submitOrder = () => {
+  console.log("xác nhận đặt hàng");
+  // show popup
+  getEle("#popup").classList.remove("hidden");
+};
+
+window.submitOrder = submitOrder;
+
+// đóng popup submit
+const cancelOrder = () => {
+  getEle("#popup").classList.add("hidden");
+};
+
+window.cancelOrder = cancelOrder;
+
+// confirm oder - xóa cart & reload
+const confirmOrder = () => {
+  localStorage.removeItem("cart");
+  window.location.reload();
+  window.scrollTo(0, 0);
+};
+
+window.confirmOrder = confirmOrder;
