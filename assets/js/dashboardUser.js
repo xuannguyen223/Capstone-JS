@@ -62,8 +62,8 @@ function handleCarousel() {
 // Kiểm tra xem trang hiện tại có phải là index.html không thì mới gọi hàm
 // LƯU Ý: CHECK LẠI URL SAU KHI DELOY XEM CÒN ĐÚNG KO
 if (
-  window.location.pathname === "/app/views/index.html" ||
-  window.location.pathname === "/app/views/"
+  window.location.pathname.endsWith("/index.html") ||
+  window.location.pathname.endsWith("/views/")
 ) {
   window.addEventListener("resize", handleCarousel);
   window.addEventListener("load", handleCarousel);

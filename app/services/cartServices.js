@@ -3,7 +3,7 @@ import userServices from "./productServicesUser.js";
 
 // Render sản phẩm lên table
 function renderCart() {
-  if (window.location.pathname !== "/app/views/cart.html") {
+  if (!window.location.pathname.endsWith("/cart.html")) {
     updateTotalCart(getCartFromLocalStorage());
     return;
   }

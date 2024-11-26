@@ -19,10 +19,19 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: npm install --force
+      - name: Generate index.html file
+        run: |
+          echo "<!DOCTYPE html>" > ./index.html
+          echo "<html lang='en'>" >> ./index.html
+          echo "<head>" >> ./index.html
+          echo "<meta charset='UTF-8'>" >> ./index.html
+          echo "<meta http-equiv=\"refresh\" content=\"0;URL='https://xuannguyen223.github.io/Capstone-JS/app/views'\">" >> ./index.html
+          echo "</head>" >> ./index.html
+          echo "</html>" >> ./index.html
       - run: echo "Complete npm install - Listing the files again to check if there is node_modules"
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls ${{ github.workspace }}   
       - name: Upload static artifacts
         uses: actions/upload-pages-artifact@v3.0.1
         with:

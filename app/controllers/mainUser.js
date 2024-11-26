@@ -49,7 +49,7 @@ const fetchProductListUser = () => {
       console.log("response: ", response.data);
 
       //   Nếu là trang shop.html thì render toàn bộ sp, nếu là trang index thì chỉ render 8 sp
-      if (window.location.pathname === "/app/views/shop.html") {
+      if (window.location.pathname.endsWith("/shop.html")) {
         console.log("đang ở trang shop");
         renderProductListUser(response.data, response.data.length);
       } else {
