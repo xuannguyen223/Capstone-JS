@@ -76,8 +76,6 @@ function updateTotalCart(cartMap) {
   );
   getEle("#quantity_product").innerHTML = totalQuantity;
   getEle("#quantity_product_1").innerHTML = totalQuantity;
-  getEle("#submit_quantity").innerHTML = totalQuantity;
-  getEle("#submit_price").innerHTML = getEle("#product_total_price").innerHTML;
 }
 
 // get localStorage
@@ -146,6 +144,12 @@ window.addEventListener("load", renderCart);
 // XÁC NHẬN ĐẶT HÀNG
 const submitOrder = () => {
   console.log("xác nhận đặt hàng");
+  // get quantity với total price
+  getEle("#submit_quantity").innerHTML = getEle(
+    "#quantity_product_1"
+  ).innerHTML;
+  getEle("#submit_quantity").innerHTML = getEle("#quantity_product").innerHTML;
+  getEle("#submit_price").innerHTML = getEle("#product_total_price").innerHTML;
   // show popup
   getEle("#popup").classList.remove("hidden");
 };
