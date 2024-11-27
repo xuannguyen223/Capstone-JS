@@ -209,17 +209,24 @@
     >
       <div class="submit__modal">
         <h2 class="popup__submit_title">CONFIRM YOUR ORDER</h2>
-        <div class="submit_oder_info">
-          <p>Quantity: <span id="submit_quantity"></span></p>
-          <p>Price: <span id="submit_price"></span></p>
-        </div>
+        <div id="submit_oder_info" class="submit_oder_info"></div>
         <button class="confirm-order" onclick="confirmOrder()">CONFIRM</button>
         <button class="close__popup_submit" onclick="cancelOrder()">
           CANCEL
         </button>
       </div>
     </div>
-
+    <!-- POPUP thông báo đặt hàng thành công -->
+    <div
+      id="popup_success"
+      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="product__modal">
+        <h2 class="popup__title">Order Confirmation</h2>
+        <p>Thank you for your order! It has been placed successfully.</p>
+        <button class="close__popup" onclick="closePopupSucess()">Close</button>
+      </div>
+    </div>
     <!-- MY AXIOS  -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"

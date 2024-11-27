@@ -3030,7 +3030,8 @@ footer p {
   font-weight: 600;
 }
 
-button#close__popup {
+button#close__popup,
+button.close__popup {
   margin-top: 1rem;
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
@@ -3040,7 +3041,8 @@ button#close__popup {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-button#close__popup:hover {
+button#close__popup:hover,
+button.close__popup:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(224 36 36 / var(--tw-bg-opacity, 1));
 }
@@ -3138,6 +3140,7 @@ button#close__popup:hover {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
+  color: rgb(0 0 0 / 0.5);
 }
 
 .confirm-order {
@@ -3169,14 +3172,93 @@ button#close__popup:hover {
 }
 
 .submit_oder_info {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.submit_oder_info span {
-  font-weight: 600;
-  --tw-text-opacity: 1;
-  color: rgb(14 159 110 / var(--tw-text-opacity, 1));
+@media (min-width: 640px) {
+  .submit_oder_info {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .submit_oder_info {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .submit_oder_info {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .submit_oder_info {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .submit_oder_info {
+    max-width: 1536px;
+  }
+}
+
+.submit_oder_info {
+  padding: 2rem;
+}
+
+/* form table trong popup submit order */
+
+#submit_oder_info table {
+  width: 100%;
+  table-layout: auto;
+}
+
+#submit_oder_info table thead {
+  display: block;
+  width: 100%;
+}
+
+#submit_oder_info table thead th {
+  width: 25%;
+}
+
+#submit_oder_info table thead tr {
+  width: 100%;
+}
+
+#submit_oder_info table #tableCartBody {
+  display: block;
+  max-height: 40vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#submit_oder_info table #tableCartBody tr {
+  display: table-row;
+  width: 100%;
+}
+
+#submit_oder_info table #tableCartBody td {
+  display: table-cell;
+  width: 25%;
+}
+
+#submit_oder_info #tableCartBody .product_info {
+  padding: 1rem;
+}
+
+#submit_oder_info .product_info button.delete,
+#submit_oder_info .product_info span,
+#submit_oder_info .product_quantity button.decrease,
+#submit_oder_info .product_quantity button.increase,
+#submit_oder_info .submit__order {
+  display: none;
 }
 
 .close__popup_submit {
@@ -3575,7 +3657,7 @@ button#close__popup:hover {
   border-bottom-width: 1px;
 }
 
-#tableCartBody .product_info {
+#filledProduct #tableCartBody .product_info {
   position: relative;
   display: flex;
   align-items: center;
@@ -3583,18 +3665,24 @@ button#close__popup:hover {
   gap: 2.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 4rem;
+  padding-left: 2rem;
   padding-right: 1.5rem;
 }
 
+@media (min-width: 640px) {
+  #filledProduct #tableCartBody .product_info {
+    padding-left: 4rem;
+  }
+}
+
 @media (min-width: 768px) {
-  #tableCartBody .product_info {
+  #filledProduct #tableCartBody .product_info {
     padding-left: 6rem;
   }
 }
 
 @media (min-width: 1024px) {
-  #tableCartBody .product_info {
+  #filledProduct #tableCartBody .product_info {
     padding-left: 8rem;
   }
 }
@@ -3603,6 +3691,7 @@ button#close__popup:hover {
   position: absolute;
   left: 5%;
   top: 50%;
+  display: none;
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   font-size: 2.25rem;
@@ -3617,6 +3706,12 @@ button#close__popup:hover {
   color: rgb(240 82 82 / var(--tw-text-opacity, 1));
 }
 
+@media (min-width: 640px) {
+  .product_info button.delete {
+    display: block;
+  }
+}
+
 .product_info img {
   height: 5rem;
   width: 5rem;
@@ -3628,6 +3723,7 @@ button#close__popup:hover {
 .product_info span {
   display: none;
   text-align: center;
+  text-transform: uppercase;
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
@@ -3653,6 +3749,9 @@ button#close__popup:hover {
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
 .product_quantity div {

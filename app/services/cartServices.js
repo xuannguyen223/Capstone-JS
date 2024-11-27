@@ -68,7 +68,7 @@ function renderCart() {
   loadCartItems();
 }
 
-// hàm cập nhật icon giỏ hàng & thông tin submit order
+// hàm cập nhật icon giỏ hàng
 function updateTotalCart(cartMap) {
   const totalQuantity = [...cartMap.values()].reduce(
     (sum, value) => sum + value,
@@ -93,7 +93,7 @@ const setCartToLocalStorage = (cart) => {
   localStorage.setItem("cart", data);
 };
 
-// Thêm sản phẩm vào giỏ hàng - XUÂN
+// Thêm sản phẩm vào giỏ hàng
 function addToCart(productId) {
   console.log("productId: ", productId);
   let currentCart = getCartFromLocalStorage();
@@ -144,12 +144,8 @@ window.addEventListener("load", renderCart);
 // XÁC NHẬN ĐẶT HÀNG
 const submitOrder = () => {
   console.log("xác nhận đặt hàng");
-  // get quantity với total price
-  getEle("#submit_quantity").innerHTML = getEle(
-    "#quantity_product_1"
-  ).innerHTML;
-  getEle("#submit_quantity").innerHTML = getEle("#quantity_product").innerHTML;
-  getEle("#submit_price").innerHTML = getEle("#product_total_price").innerHTML;
+  // get thông tin từ giỏ hàng
+  getEle("#submit_oder_info").innerHTML = getEle("#filledProduct").innerHTML;
   // show popup
   getEle("#popup").classList.remove("hidden");
 };
@@ -166,8 +162,18 @@ window.cancelOrder = cancelOrder;
 // confirm oder - xóa cart & reload
 const confirmOrder = () => {
   localStorage.removeItem("cart");
+  // Ẩn popup submit hiện tại
+  getEle("#popup").classList.add("hidden");
+  // Hiện popup thông báo đã đặt hàng thành công
+  getEle("#popup_success").classList.remove("hidden");
+};
+
+window.confirmOrder = confirmOrder;
+
+const closePopupSucess = () => {
+  getEle("#popup_success").classList.add("hidden");
   window.location.reload();
   window.scrollTo(0, 0);
 };
 
-window.confirmOrder = confirmOrder;
+window.closePopupSucess = closePopupSucess;

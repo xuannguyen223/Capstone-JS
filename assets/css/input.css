@@ -370,7 +370,8 @@ footer p {
   @apply text-xl font-semibold;
 }
 
-button#close__popup {
+button#close__popup,
+button.close__popup {
   @apply mt-4 p-2 bg-red-500 text-white rounded hover:bg-red-600;
 }
 
@@ -408,7 +409,7 @@ button#close__popup {
 }
 
 .popup__submit_title {
-  @apply text-xl font-semibold;
+  @apply text-xl font-semibold text-black/50;
 }
 
 .confirm-order {
@@ -417,11 +418,48 @@ button#close__popup {
 }
 
 .submit_oder_info {
-  @apply py-8;
+  @apply p-8 container;
 }
 
-.submit_oder_info span {
-  @apply font-semibold text-green-500;
+/* form table trong popup submit order */
+#submit_oder_info table {
+  @apply w-full table-auto;
+}
+
+#submit_oder_info table thead {
+  @apply block w-full;
+}
+
+#submit_oder_info table thead th {
+  @apply w-1/4;
+}
+
+#submit_oder_info table thead tr {
+  @apply w-full;
+}
+
+#submit_oder_info table #tableCartBody {
+  @apply w-full max-h-[40vh] overflow-y-auto block overflow-x-hidden;
+}
+
+#submit_oder_info table #tableCartBody tr {
+  @apply table-row w-full;
+}
+
+#submit_oder_info table #tableCartBody td {
+  @apply table-cell w-1/4;
+}
+
+#submit_oder_info #tableCartBody .product_info {
+  @apply p-4;
+}
+
+#submit_oder_info .product_info button.delete,
+#submit_oder_info .product_info span,
+#submit_oder_info .product_quantity button.decrease,
+#submit_oder_info .product_quantity button.increase,
+#submit_oder_info .submit__order {
+  @apply hidden;
 }
 
 .close__popup_submit {
@@ -513,13 +551,13 @@ button#close__popup {
   @apply border-b;
 }
 
-#tableCartBody .product_info {
-  @apply py-4 md:pl-24 lg:pl-32 pl-16 pr-6 flex items-center justify-start gap-10 relative;
+#filledProduct #tableCartBody .product_info {
+  @apply py-4 md:pl-24 lg:pl-32 sm:pl-16 pl-8 pr-6 flex items-center justify-start gap-10 relative;
 }
 
 .product_info button.delete {
   @apply text-black/60 hover:text-red-500 text-4xl fontCormorant font-thin absolute 
-  left-[5%] top-1/2 transform -translate-y-1/2;
+  left-[5%] top-1/2 transform -translate-y-1/2 hidden sm:block;
 }
 
 .product_info img {
@@ -527,7 +565,7 @@ button#close__popup {
 }
 
 .product_info span {
-  @apply text-gray-800 text-center hidden sm:inline;
+  @apply text-gray-800 text-center hidden sm:inline uppercase;
 }
 
 .product_price {
@@ -535,7 +573,7 @@ button#close__popup {
 }
 
 .product_quantity {
-  @apply py-4 px-4;
+  @apply py-4 px-4 text-gray-800 text-center;
 }
 
 .product_quantity div {
